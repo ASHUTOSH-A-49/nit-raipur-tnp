@@ -1,0 +1,41 @@
+// src/App.jsx
+// Note: Imports using the alias "@" are fine and don't require an extension update here
+import { Toaster } from "@/components/ui/toaster"; 
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// CRITICAL: Update the extensions of all local imports to use the new .jsx extension
+import Index from "./pages/Index.jsx"; 
+import Academics from "./pages/Academics.jsx";
+import Placements from "./pages/Placements.jsx";
+import ForRecruiters from "./pages/ForRecruiters.jsx";
+import Team from "./pages/Team.jsx";
+import Contact from "./pages/Contact.jsx";
+import NotFound from "./pages/NotFound.jsx";
+
+const queryClient = new QueryClient();
+
+// The component itself requires no syntax changes, as it was already pure JSX/JS
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/academics" element={<Academics />} />
+          <Route path="/placements" element={<Placements />} />
+          <Route path="/recruiters" element={<ForRecruiters />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
+
+export default App;

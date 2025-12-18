@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Mail, Phone } from "lucide-react";
+import {Layout} from "../components/layout/Layout.jsx"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -237,7 +238,7 @@ const TeamCard = ({ member, index }) => {
 
 const Team = () => {
   return (
-    <div>
+    <Layout>
       {/* Hero */}
       <section className="bg-hero-gradient py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
@@ -279,7 +280,7 @@ const Team = () => {
           </div>
         </div>
       </section>
-    </div>
+    </Layout>
   );
 };
 

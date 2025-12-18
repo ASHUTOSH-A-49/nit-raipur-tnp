@@ -4,6 +4,7 @@ import { Menu, X, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button.jsx"; // <-- Updated
 import { cn } from "@/lib/utils.js"; // <-- CRITICAL: Updated from .ts to .js
 import { motion, AnimatePresence } from "framer-motion";
+import nitrlogo from "../../assets/nitr.png"
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -19,17 +20,17 @@ export const Navbar = () => {
   const location = useLocation();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-sm">
-      <nav className="container mx-auto px-4 lg:px-8">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-card backdrop-blur-md border-b border-border shadow-sm">
+      <nav className="container mx-auto px-2 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-elegant group-hover:shadow-glow transition-shadow duration-300">
-              <GraduationCap className="w-7 h-7 text-primary-foreground" />
+            <div className="w-14 h-14 rounded-full flex items-center justify-center shadow-elegant group-hover:shadow-glow transition-shadow duration-300">
+              <img src={nitrlogo} className="w-12 h-12 text-primary-foreground" />
             </div>
             <div className="hidden sm:block">
               <p className="font-bold text-lg text-primary leading-tight">Training & Placement Cell</p>
-              <p className="text-xs text-muted-foreground">NIT Raipur</p>
+              <p className="text-xs text-muted-foreground">National Institute Of Technology , Raipur</p>
             </div>
           </Link>
 

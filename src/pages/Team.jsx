@@ -4,8 +4,11 @@ import { Linkedin, Mail, Phone } from "lucide-react";
 import { Layout } from "../components/layout/Layout.jsx";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { pastConveners } from "../data/pastConveners.js";
 
 gsap.registerPlugin(ScrollTrigger);
+
+/* ================= CURRENT CONVENERS ================= */
 
 const conveners = [
   {
@@ -203,6 +206,7 @@ const TeamCard = ({ member, index }) => {
 
 const Team = () => {
   const [activeTab, setActiveTab] = useState("current");
+  const [selectedBranch, setSelectedBranch] = useState("All"); // ✅ FIX
 
   return (
     <Layout>
@@ -261,30 +265,30 @@ const Team = () => {
             </div>
           )}
 
-          {/* PAST (PLACEHOLDER) */}
-          {activeTab === "past" && (
+          {/* PAST */}
+{activeTab === "past" && (
   <div className="space-y-16">
 
     {/* ---------- Branch Filter ---------- */}
     <div className="flex justify-end">
-      <div className="relative">
+      <div className="relative w-64">
         <select
           value={selectedBranch}
           onChange={(e) => setSelectedBranch(e.target.value)}
           className="
+            w-full
             appearance-none
-            pl-4 pr-10 py-2.5
-            rounded-lg
+            rounded-xl
             border border-border
             bg-background
+            px-4 py-3
             text-sm font-medium
             shadow-sm
             transition-all duration-200
-            hover:border-blue-400
-            hover:shadow-md
+            hover:shadow-md hover:border-blue-400
             focus:outline-none
             focus:ring-2 focus:ring-blue-200
-            focus:border-blue-500
+            focus:border-blue-600
           "
         >
           <option value="All">All Branches</option>
@@ -297,8 +301,8 @@ const Team = () => {
             ))}
         </select>
 
-        {/* dropdown arrow */}
-        <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+        {/* Custom dropdown arrow */}
+        <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground text-xs">
           ▼
         </span>
       </div>
@@ -316,26 +320,27 @@ const Team = () => {
         if (data.length === 0) return null;
 
         return (
-          <div key={year}>
-            {/* Year Heading */}
-            <div className="flex items-center gap-3 mb-5">
+          <div key={year} className="space-y-5">
+            {/* Year Header */}
+            <div className="flex items-center gap-3">
               <div className="h-6 w-1.5 bg-blue-900 rounded-full" />
-              <h3 className="text-xl font-semibold text-foreground tracking-tight">
+              <h3 className="text-xl font-semibold text-foreground">
                 Academic Year {year}
               </h3>
             </div>
 
             {/* Table Card */}
             <div className="
-              rounded-xl
+              rounded-2xl
               border border-border
-              shadow-sm
-              hover:shadow-md
-              transition-shadow
               bg-card
+              shadow-sm
+              hover:shadow-lg
+              transition-shadow
             ">
               <div className="max-h-[420px] overflow-y-auto">
                 <table className="w-full text-sm">
+                  {/* Sticky Header */}
                   <thead className="sticky top-0 z-10 bg-blue-50 border-b">
                     <tr className="text-xs uppercase tracking-wider text-blue-900">
                       <th className="px-6 py-4 text-left font-semibold">
@@ -355,8 +360,7 @@ const Team = () => {
                       <tr
                         key={i}
                         className={`
-                          border-b last:border-b-0
-                          transition-all
+                          transition-colors
                           ${i % 2 === 0 ? "bg-background" : "bg-muted/30"}
                           hover:bg-blue-50
                         `}
@@ -364,15 +368,13 @@ const Team = () => {
                         <td className="px-6 py-4 font-medium text-foreground">
                           {m.name}
                         </td>
-
                         <td className="px-6 py-4 text-muted-foreground">
                           {m.branch}
                         </td>
-
-                        <td className="px-6 py-4 font-mono text-sm text-foreground">
+                        <td className="px-6 py-4 font-mono text-sm">
                           <a
                             href={`tel:${m.contact}`}
-                            className="hover:underline hover:text-blue-900 transition-colors"
+                            className="hover:text-blue-900 hover:underline transition-colors"
                           >
                             {m.contact}
                           </a>
@@ -388,6 +390,7 @@ const Team = () => {
       })}
   </div>
 )}
+
 
         </div>
       </section>

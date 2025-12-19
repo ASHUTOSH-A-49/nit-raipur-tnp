@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 // This import is already valid JavaScript, assuming the image file itself is .jpg
-import campusImage from "@/assets/nitrr-campus.jpg"; 
+import campusImage from "@/assets/nit_raipur.jpg"; 
 
 export const AboutSection = () => {
   const ref = useRef(null);
@@ -28,12 +28,16 @@ export const AboutSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
             </div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-sky rounded-2xl flex items-center justify-center shadow-lg">
-              <div className="text-center text-primary">
+            <motion.div
+              whileHover={{ scale: 1.08 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-900/90 backdrop-blur-lg rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl cursor-default"
+            >
+              <div className="text-center text-white">
                 <p className="text-3xl font-bold">1956</p>
                 <p className="text-xs font-medium">Established</p>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Content */}
@@ -42,7 +46,7 @@ export const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-2">About</p>
+            <p className="text-accent text-lg font-extrabold uppercase tracking-wider mb-2">About</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               National Institute of Technology Raipur
             </h2>

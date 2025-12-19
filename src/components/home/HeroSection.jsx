@@ -31,7 +31,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-sky text-sm font-medium tracking-wider uppercase mb-4"
+            className="text-sky text-xl font-bold tracking-wider uppercase mb-4"
           >
             Welcome to
           </motion.p>
@@ -56,53 +56,114 @@ export const HeroSection = () => {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-wrap gap-4 mb-12"
-          >
-            <Button
-              asChild
-              size="lg"
-              className="bg-sky hover:bg-sky/90 text-primary font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <Link to="/placements">
-                View Placements
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 font-semibold"
-            >
-              <Link to="/recruiters">Recruit from NITRR</Link>
-            </Button>
-          </motion.div>
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.4 }}
+  className="flex flex-wrap gap-4 mb-12"
+>
+  {/* Primary CTA */}
+  <motion.div
+    whileHover={{ y: -4, scale: 1.03 }}
+    whileTap={{ scale: 0.97 }}
+    transition={{ type: "spring", stiffness: 300, damping: 18 }}
+  >
+    <Button
+      asChild
+      size="lg"
+      className="
+        group
+        bg-sky
+        hover:bg-sky/90
+        text-primary
+        font-semibold
+        shadow-lg
+        hover:shadow-xl
+        transition-all duration-300
+      "
+    >
+      <Link to="/placements" className="flex items-center">
+        View Placements
+        <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+      </Link>
+    </Button>
+  </motion.div>
+
+  {/* Secondary CTA */}
+  <motion.div
+    whileHover={{ y: -4, scale: 1.03 }}
+    whileTap={{ scale: 0.97 }}
+    transition={{ type: "spring", stiffness: 300, damping: 18 }}
+  >
+    <Button
+      asChild
+      size="lg"
+      variant="outline"
+      className="
+        relative overflow-hidden
+        border-primary-foreground/40
+        bg-primary-foreground/10
+        text-primary-foreground
+        font-semibold
+        hover:bg-primary-foreground/20
+        shadow-md
+        hover:shadow-lg
+        transition-all duration-300
+      "
+    >
+      <Link to="/recruiters" className="relative z-10">
+        Recruit from NITRR
+      </Link>
+    </Button>
+  </motion.div>
+</motion.div>
 
           {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="grid grid-cols-3 gap-6 max-w-lg"
-          >
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="w-12 h-12 mx-auto mb-2 rounded-lg bg-primary-foreground/10 flex items-center justify-center">
-                  <stat.icon className="w-6 h-6 text-sky" />
-                </div>
-                <p className="text-2xl font-bold text-primary-foreground">{stat.value}</p>
-                <p className="text-xs text-primary-foreground/70">{stat.label}</p>
-              </div>
-            ))}
-          </motion.div>
+<motion.div
+  initial="hidden"
+  animate="visible"
+  variants={{
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.6,
+      },
+    },
+  }}
+  className="grid grid-cols-3 gap-6 max-w-lg"
+>
+  {stats.map((stat, index) => (
+    <motion.div
+      key={index}
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.5, ease: "easeOut" },
+        },
+      }}
+      whileHover={{ y: -4, scale: 1.05 }}
+      className=""
+    >
+      <div className="w-12 h-12 mb-2  rounded-lg bg-primary-foreground/10 flex items-center justify-center transition-colors duration-300 hover:bg-primary-foreground/20">
+        <stat.icon className="w-6 h-6 text-sky" />
+      </div>
+      <p className="text-2xl font-bold text-primary-foreground">
+        {stat.value}
+      </p>
+      <p className="text-xs text-primary-foreground/70">
+        {stat.label}
+      </p>
+    </motion.div>
+  ))}
+</motion.div>
+
         </div>
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-[5rem] bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };

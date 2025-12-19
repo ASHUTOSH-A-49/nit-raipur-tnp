@@ -263,15 +263,131 @@ const Team = () => {
 
           {/* PAST (PLACEHOLDER) */}
           {activeTab === "past" && (
-            <div className="text-center py-24 text-muted-foreground">
-              <h2 className="text-2xl font-semibold mb-2">
-                Past Conveners Section
-              </h2>
-              <p>
-                Paste the past conveners code from <b>main</b> branch here.
-              </p>
+  <div className="space-y-16">
+
+    {/* ---------- Branch Filter ---------- */}
+    <div className="flex justify-end">
+      <div className="relative">
+        <select
+          value={selectedBranch}
+          onChange={(e) => setSelectedBranch(e.target.value)}
+          className="
+            appearance-none
+            pl-4 pr-10 py-2.5
+            rounded-lg
+            border border-border
+            bg-background
+            text-sm font-medium
+            shadow-sm
+            transition-all duration-200
+            hover:border-blue-400
+            hover:shadow-md
+            focus:outline-none
+            focus:ring-2 focus:ring-blue-200
+            focus:border-blue-500
+          "
+        >
+          <option value="All">All Branches</option>
+          {[...new Set(Object.values(pastConveners).flat().map(m => m.branch))]
+            .sort()
+            .map(branch => (
+              <option key={branch} value={branch}>
+                {branch}
+              </option>
+            ))}
+        </select>
+
+        {/* dropdown arrow */}
+        <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+          ▼
+        </span>
+      </div>
+    </div>
+
+    {/* ---------- Year-wise Tables ---------- */}
+    {Object.keys(pastConveners)
+      .sort((a, b) => b - a)
+      .map(year => {
+        const data =
+          selectedBranch === "All"
+            ? pastConveners[year]
+            : pastConveners[year].filter(m => m.branch === selectedBranch);
+
+        if (data.length === 0) return null;
+
+        return (
+          <div key={year}>
+            {/* Year Heading */}
+            <div className="flex items-center gap-3 mb-5">
+              <div className="h-6 w-1.5 bg-blue-900 rounded-full" />
+              <h3 className="text-xl font-semibold text-foreground tracking-tight">
+                Academic Year {year}
+              </h3>
             </div>
-          )}
+
+            {/* Table Card */}
+            <div className="
+              rounded-xl
+              border border-border
+              shadow-sm
+              hover:shadow-md
+              transition-shadow
+              bg-card
+            ">
+              <div className="max-h-[420px] overflow-y-auto">
+                <table className="w-full text-sm">
+                  <thead className="sticky top-0 z-10 bg-blue-50 border-b">
+                    <tr className="text-xs uppercase tracking-wider text-blue-900">
+                      <th className="px-6 py-4 text-left font-semibold">
+                        Name
+                      </th>
+                      <th className="px-6 py-4 text-left font-semibold">
+                        Branch
+                      </th>
+                      <th className="px-6 py-4 text-left font-semibold">
+                        Contact
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {data.map((m, i) => (
+                      <tr
+                        key={i}
+                        className={`
+                          border-b last:border-b-0
+                          transition-all
+                          ${i % 2 === 0 ? "bg-background" : "bg-muted/30"}
+                          hover:bg-blue-50
+                        `}
+                      >
+                        <td className="px-6 py-4 font-medium text-foreground">
+                          {m.name}
+                        </td>
+
+                        <td className="px-6 py-4 text-muted-foreground">
+                          {m.branch}
+                        </td>
+
+                        <td className="px-6 py-4 font-mono text-sm text-foreground">
+                          <a
+                            href={`tel:${m.contact}`}
+                            className="hover:underline hover:text-blue-900 transition-colors"
+                          >
+                            {m.contact}
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+  </div>
+)}
 
         </div>
       </section>

@@ -14,7 +14,6 @@ import {
   Pie,
   Cell,
 } from "recharts";
-
 const batches = ["2025", "2024", "2023"];
 
 const placementData = {

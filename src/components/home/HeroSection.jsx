@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Users, Building2, Award } from "lucide-react";
-import { Button } from "@/components/ui/button.jsx"; // <-- Updated
+import { Button } from "@/components/ui/button.jsx";
 import { Link } from "react-router-dom";
-// This import is already valid JavaScript
-import campusImage from "@/assets/nitrr-campus.jpg"; 
+import campusImage from "@/assets/nitrr-campus.jpg";
 
 const stats = [
   { icon: Users, value: "3000+", label: "Students Placed" },
@@ -14,24 +13,25 @@ const stats = [
 export const HeroSection = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
+      {/* ================= BACKGROUND ================= */}
+      <div className="absolute inset-0 z-0">
         <img
           src={campusImage}
           alt="NIT Raipur Campus"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
+        {/* Blue overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/75 to-primary/60" />
       </div>
 
-      {/* Content */}
+      {/* ================= CONTENT ================= */}
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-3xl">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-sky text-sm font-medium tracking-wider uppercase mb-4"
+            className="text-sky text-xl font-bold tracking-wider uppercase mb-4"
           >
             Welcome to
           </motion.p>
@@ -52,57 +52,95 @@ export const HeroSection = () => {
             transition={{ delay: 0.3 }}
             className="text-lg text-primary-foreground/80 mb-8 max-w-xl leading-relaxed"
           >
-            Bridging talented engineers with industry leaders. Serving the cause of technical education and career excellence for over six decades.
+            Bridging talented engineers with industry leaders. Serving the cause
+            of technical education and career excellence for over six decades.
           </motion.p>
 
+          {/* ================= BUTTONS ================= */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             className="flex flex-wrap gap-4 mb-12"
           >
-            <Button
-              asChild
-              size="lg"
-              className="bg-sky hover:bg-sky/90 text-primary font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+            <motion.div
+              whileHover={{ y: -4, scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 300, damping: 18 }}
             >
-              <Link to="/placements">
-                View Placements
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 font-semibold"
+              <Button
+                asChild
+                size="lg"
+                className="bg-sky hover:bg-sky/90 text-primary font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <Link to="/placements" className="flex items-center">
+                  View Placements
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+              </Button>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ y: -4, scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 300, damping: 18 }}
             >
-              <Link to="/recruiters">Recruit from NITRR</Link>
-            </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-primary-foreground/40 bg-primary-foreground/10 text-primary-foreground font-semibold hover:bg-primary-foreground/20 shadow-md hover:shadow-lg transition-all duration-300"
+              >
+                <Link to="/recruiters">Recruit from NITRR</Link>
+              </Button>
+            </motion.div>
           </motion.div>
 
-          {/* Stats */}
+          {/* ================= STATS ================= */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.15,
+                  delayChildren: 0.6,
+                },
+              },
+            }}
             className="grid grid-cols-3 gap-6 max-w-lg"
           >
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="w-12 h-12 mx-auto mb-2 rounded-lg bg-primary-foreground/10 flex items-center justify-center">
+              <motion.div
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                whileHover={{ y: -4, scale: 1.05 }}
+              >
+                <div className="w-12 h-12 mb-2 rounded-lg bg-primary-foreground/10 flex items-center justify-center">
                   <stat.icon className="w-6 h-6 text-sky" />
                 </div>
-                <p className="text-2xl font-bold text-primary-foreground">{stat.value}</p>
-                <p className="text-xs text-primary-foreground/70">{stat.label}</p>
-              </div>
+                <p className="text-2xl font-bold text-primary-foreground">
+                  {stat.value}
+                </p>
+                <p className="text-xs text-primary-foreground/70">
+                  {stat.label}
+                </p>
+              </motion.div>
             ))}
           </motion.div>
         </div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      {/* ================= WHITE BOTTOM FADE ================= */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
+        {/* subtle top shadow */}
+        <div className="h-1 shadow-[0_-25px_45px_35px_rgba(0,0,0,0.25)]" />
+        {/* white fade */}
+        <div className="h-[5rem] bg-gradient-to-t from-white to-transparent" />
+      </div>
     </section>
   );
 };

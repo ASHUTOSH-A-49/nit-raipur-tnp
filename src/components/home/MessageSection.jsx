@@ -8,7 +8,7 @@ import tpcHeadImage from "@/assets/tpc-head.jpg";
 
 const messages = [
   {
-    image: directorImage,
+    image: directorImage,//change the image when you get it
     name: "Dr. Samir Bajpai",
     role: "Head, Career Development Center",
     message:
@@ -43,12 +43,37 @@ export const MessageSection = () => {
           <div className="max-w-[800px] w-full">
           {messages.map((item, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.2 }}
-              className="bg-card rounded-2xl p-8 shadow-elegant relative"
-            >
+  key={index}
+  initial={{ opacity: 0, y: 20 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ delay: index * 0.2 }}
+
+  /* INSTANT, SNAPPY HOVER */
+  whileHover={{ scale: 1.01, y: -1 }}
+  whileTap={{ scale: 1.02 }}
+
+  /* IMPORTANT: NO SLOW SPRING */
+  transition={{
+    type: "tween",
+    duration: 0.10,
+    ease: "easeOut",
+  }}
+
+  className="
+    bg-card
+    rounded-2xl
+    p-8
+    relative
+    border border-border
+
+    /* BASE SHADOW */
+    shadow-[0_-4px_10px_rgba(0,0,0,0.12),0_25px_45px_-12px_rgba(0,0,0,0.35)]
+
+    /* HOVER SHADOW (instant change) */
+    hover:shadow-[0_-8px_18px_rgba(0,0,0,0.18),0_35px_50px_-12px_rgba(0,0,0,0.45)]
+  "
+>
+
               <Quote className="absolute top-6 right-6 w-12 h-12 text-primary/10" />
               
               <div className="flex items-center gap-4 mb-6">

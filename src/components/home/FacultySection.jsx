@@ -4,26 +4,18 @@ import { Mail, Phone } from "lucide-react";
 
 const faculty = [
   {
-    name: "Mr. Pawan Kataria",
-    role: "Assistant Registrar",//change data of department, email, phone when you get it
-    department: "Mechanical Engineering",
+    name: "Dr. Samir Bajpai",
+    role: "Head, Career Development Center",//change data of department, email, phone when you get it
     email: "tpo@nitrr.ac.in",
     phone: "+91 9406173242",
   },
   {
-    name: "Mr. Shubham Bareth",
-    role: "Stenographer",
-    department: "Electrical Engineering",
+    name: "Dr. Vivek Kumar Gaba",
+    role: "Faculty-in-charge,Placement Cell",
     email: "xyz@nitrr.ac.in",
     phone: "+91 9000000000",
   },
-  {
-    name: "Ms. Shubhra Sharma",
-    role: "Junior Assistant",
-    department: "Computer Science & Engineering",
-    email: "pqr@nitrr.ac.in",
-    phone: "+91 9111111111",
-  },
+  
 ];
 
 export const FacultySection = () => {
@@ -132,7 +124,7 @@ export const FacultySection = () => {
   /* ---------- Section ---------- */
   return (
     <section className="py-20 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="container mx-auto px-4 lg:px-4">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -149,7 +141,7 @@ export const FacultySection = () => {
         </motion.div>
 
         {/* Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 justify-center">
           {faculty.map((member, index) => (
             <motion.div
               key={index}

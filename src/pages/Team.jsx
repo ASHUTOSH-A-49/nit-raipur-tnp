@@ -11,6 +11,42 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
+/* ================= IMAGE HELPER ================= */
+
+// Import ALL images from team2026 (Vite-safe)
+const teamImages = import.meta.glob(
+  "../data/team_2026/**/*.{jpg,jpeg,png,JPG,JPEG,PNG}",
+  { eager: true }
+);
+
+// Normalize string for comparison
+const normalize = (str) =>
+  str
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, " ")        // normalize spaces
+    .replace(/[_-]+/g, " ")      // _ or - → space
+    .replace(/[^a-z0-9 ]/g, ""); // remove special chars
+
+// Universal matcher
+const getConvenerImage = (name) => {
+  const target = normalize(name);
+
+  for (const [path, mod] of Object.entries(teamImages)) {
+    const fileName = path
+      .split("/")
+      .pop()
+      .replace(/\.(jpg|jpeg|png)$/i, "");
+
+    if (normalize(fileName) === target) {
+      return mod.default;
+    }
+  }
+
+  return null; // fallback handled in UI
+};
+
+
 /* ================= TEAM CARD ================= */
 
 const TeamCard = ({ member, index }) => {
@@ -35,13 +71,13 @@ const TeamCard = ({ member, index }) => {
         y: 0,
         x: 0,
         scale: 1,
-        duration: 0.45, // ⚡ faster
+        duration: 0.45,
         ease: "power3.out",
         scrollTrigger: {
           trigger: card,
           start: "top bottom-=80",
         },
-        delay: index * 0.03, // ⚡ faster stagger
+        delay: index * 0.03,
       }
     );
   }, [index]);
@@ -49,14 +85,24 @@ const TeamCard = ({ member, index }) => {
   return (
     <div ref={cardRef} className="h-[420px]">
       <div className="w-full h-full bg-card rounded-2xl overflow-hidden shadow-lg hover:scale-[1.03] transition-transform">
+        
         {/* Avatar */}
         <div className="relative h-48 bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-          <div className="w-24 h-24 rounded-full bg-primary-foreground/20 flex items-center justify-center text-primary-foreground text-3xl font-bold">
-            {member.name
-              .split(" ")
-              .map((n) => n[0])
-              .join("")}
-          </div>
+          {member.image ? (
+            <img
+              src={member.image}
+              alt={member.name}
+              loading="lazy"
+              className="w-40 h-40 rounded-full object-cover border-4 border-white/30 shadow-xl"
+            />
+          ) : (
+            <div className="w-24 h-24 rounded-full bg-primary-foreground/20 flex items-center justify-center text-primary-foreground text-3xl font-bold">
+              {member.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")}
+            </div>
+          )}
         </div>
 
         {/* Info */}
@@ -68,7 +114,7 @@ const TeamCard = ({ member, index }) => {
             {member.email && (
               <a
                 href={`mailto:${member.email}`}
-                className="flex justify-center gap-2"
+                className="flex justify-center gap-2 hover:text-primary"
               >
                 <Mail className="w-4 h-4" />
                 {member.email}
@@ -77,7 +123,7 @@ const TeamCard = ({ member, index }) => {
 
             <a
               href={`tel:${member.contact}`}
-              className="flex justify-center gap-2"
+              className="flex justify-center gap-2 hover:text-primary"
             >
               <Phone className="w-4 h-4" />
               {member.contact}
@@ -96,7 +142,6 @@ const Team = () => {
   const [currentFilter, setCurrentFilter] = useState("all");
   const [selectedBranch, setSelectedBranch] = useState("All");
 
-  /* ---------- SORT HELPERS ---------- */
   const sortByBranchThenName = (a, b) =>
     a.branch.localeCompare(b.branch) || a.name.localeCompare(b.name);
 
@@ -152,10 +197,9 @@ const Team = () => {
             ))}
           </div>
 
-          {/* ================= CURRENT ================= */}
+          {/* CURRENT */}
           {activeTab === "current" && (
             <>
-              {/* SUB TABS */}
               <div className="flex justify-center gap-4 mb-12">
                 {[
                   { key: "all", label: "All" },
@@ -176,91 +220,82 @@ const Team = () => {
                 ))}
               </div>
 
-              {/* CARDS */}
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {getCurrentData().map((m, i) => (
-                  <TeamCard key={i} member={m} index={i} />
+                  <TeamCard
+                    key={i}
+                    index={i}
+                    member={{
+                      ...m,
+                      image: getConvenerImage(m.name),
+                    }}
+                  />
                 ))}
               </div>
             </>
           )}
 
-          {/* ================= PAST ================= */}
+          {/* PAST */}
           {activeTab === "past" && (
             <div className="space-y-16">
-
-              {/* Branch Filter */}
               <div className="flex justify-end">
-                <div className="relative w-64">
-                  <select
-                    value={selectedBranch}
-                    onChange={(e) => setSelectedBranch(e.target.value)}
-                    className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200"
-                  >
-                    <option value="All">All Branches</option>
-                    {[...new Set(Object.values(pastConveners).flat().map(m => m.branch))]
-                      .sort()
-                      .map(branch => (
-                        <option key={branch} value={branch}>
-                          {branch}
-                        </option>
-                      ))}
-                  </select>
-                </div>
+                <select
+                  value={selectedBranch}
+                  onChange={(e) => setSelectedBranch(e.target.value)}
+                  className="rounded-xl border bg-background px-4 py-3 text-sm"
+                >
+                  <option value="All">All Branches</option>
+                  {[...new Set(Object.values(pastConveners).flat().map(m => m.branch))]
+                    .sort()
+                    .map(branch => (
+                      <option key={branch} value={branch}>
+                        {branch}
+                      </option>
+                    ))}
+                </select>
               </div>
 
-              {/* Year Tables */}
               {Object.keys(pastConveners)
                 .sort((a, b) => b - a)
                 .map((year) => {
-                  const rawData =
+                  const data =
                     selectedBranch === "All"
                       ? pastConveners[year]
                       : pastConveners[year].filter(
                           (m) => m.branch === selectedBranch
                         );
 
-                  const data = [...rawData].sort(sortByBranchThenName);
-
-                  if (data.length === 0) return null;
+                  if (!data.length) return null;
 
                   return (
                     <div key={year} className="space-y-5">
-                      <div className="flex items-center gap-3">
-                        <div className="h-6 w-1.5 bg-blue-900 rounded-full" />
-                        <h3 className="text-xl font-semibold">
-                          Academic Year {year}
-                        </h3>
-                      </div>
+                      <h3 className="text-xl font-semibold">
+                        Academic Year {year}
+                      </h3>
 
-                      <div className="rounded-2xl border bg-card shadow-sm">
-                        <div className="max-h-[420px] overflow-y-auto">
-                          <table className="w-full text-sm">
-                            <thead className="sticky top-0 bg-blue-50 border-b">
-                              <tr className="text-xs uppercase text-blue-900">
-                                <th className="px-6 py-4 text-left">Name</th>
-                                <th className="px-6 py-4 text-left">Branch</th>
-                                <th className="px-6 py-4 text-left">Contact</th>
+                      <div className="rounded-2xl border bg-card shadow-sm overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead className="bg-blue-50 border-b">
+                            <tr>
+                              <th className="px-6 py-4 text-left">Name</th>
+                              <th className="px-6 py-4 text-left">Branch</th>
+                              <th className="px-6 py-4 text-left">Contact</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {data.map((m, i) => (
+                              <tr key={i}>
+                                <td className="px-6 py-4">{m.name}</td>
+                                <td className="px-6 py-4">{m.branch}</td>
+                                <td className="px-6 py-4">
+                                  <a href={`tel:${m.contact}`}>
+                                    {m.contact}
+                                  </a>
+                                </td>
                               </tr>
-                            </thead>
-                            <tbody>
-                              {data.map((m, i) => (
-                                <tr
-                                  key={i}
-                                  className={i % 2 === 0 ? "bg-background" : "bg-muted/30"}
-                                >
-                                  <td className="px-6 py-4 font-medium">{m.name}</td>
-                                  <td className="px-6 py-4">{m.branch}</td>
-                                  <td className="px-6 py-4 font-mono">
-                                    <a href={`tel:${m.contact}`}>
-                                      {m.contact}
-                                    </a>
-                                  </td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                        </div>
+                            ))}
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   );

@@ -32,9 +32,8 @@ const App = () => (
           <Route path="/recruiters" element={<ForRecruiters />} />
           <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/developer" element={<Developer />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/devs" element={<Developers />} />
+          <Route path="/devs" element={<Developer />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

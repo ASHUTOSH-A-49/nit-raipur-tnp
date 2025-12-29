@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button.jsx";
 import { Input } from "@/components/ui/input.jsx";
 import { Textarea } from "@/components/ui/textarea.jsx";
 import { toast } from "sonner";
+import contactBanner from "@/assets/audi.jpg"; // ⚠️ change the file name to yours
+
 
 const contactInfo = [
   {
@@ -68,20 +70,32 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-hero-gradient py-20 lg:py-28">
-        <div className="container mx-auto px-4 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center text-primary-foreground"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-            <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto">
-              Get in touch with our Training & Placement Cell for recruitment queries, partnerships, or any other inquiries.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+<section
+  className="relative py-20 lg:py-28 flex items-center justify-center"
+  style={{
+    backgroundImage: `url(${contactBanner})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  {/* 🔷 Blue Overlay */}
+  <div className="absolute inset-0 bg-blue-950/60 backdrop-blur-[1px]" />
+
+  <div className="container mx-auto px-4 lg:px-8 text-center text-white relative z-10">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+    >
+      <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+      <p className="text-lg text-white/80 max-w-2xl mx-auto">
+        Get in touch with our Training & Placement Cell for recruitment queries,
+        partnerships, or any other inquiries.
+      </p>
+    </motion.div>
+  </div>
+</section>
+
 
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-4 lg:px-8">

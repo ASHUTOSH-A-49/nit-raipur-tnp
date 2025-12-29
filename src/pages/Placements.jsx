@@ -19,10 +19,10 @@ const batches = ["2025", "2024", "2023"];
 const placementData = {
   "2025": {
     stats: [
-      { value: "85%", label: "Overall Placement Rate", icon: TrendingUp },
-      { value: "₹54 LPA", label: "Highest Package", icon: Award },
-      { value: "₹12.5 LPA", label: "Average Package", icon: Briefcase },
-      { value: "520+", label: "Total Offers", icon: Users },
+      { value: "76.73%", label: "Overall Placement Rate", icon: TrendingUp },
+      { value: "₹60 LPA", label: "Highest Package", icon: Award },
+      { value: "₹11.1 LPA", label: "Average Package", icon: Briefcase },
+      { value: "700+", label: "Total Offers", icon: Users },
     ],
     branchWise: [
   { name: "CSE", highest: 40, average: 12.2, median: 10.1, placed: 165, percentage: 95 },
@@ -54,10 +54,10 @@ const placementData = {
 
   "2024": {
     stats: [
-      { value: "82%", label: "Overall Placement Rate", icon: TrendingUp },
-      { value: "₹48 LPA", label: "Highest Package", icon: Award },
-      { value: "₹11.8 LPA", label: "Average Package", icon: Briefcase },
-      { value: "490+", label: "Total Offers", icon: Users },
+      { value: "75%", label: "Overall Placement Rate", icon: TrendingUp },
+      { value: "₹62 LPA", label: "Highest Package", icon: Award },
+      { value: "₹10.8 LPA", label: "Average Package", icon: Briefcase },
+      { value: "750+", label: "Total Offers", icon: Users },
     ],
     branchWise: [
   { name: "CSE", highest: 38, average: 11.8, median: 9.8,  placed: 155, percentage: 92 },
@@ -89,10 +89,10 @@ const placementData = {
 
   "2023": {
     stats: [
-      { value: "80%", label: "Overall Placement Rate", icon: TrendingUp },
-      { value: "₹44 LPA", label: "Highest Package", icon: Award },
-      { value: "₹10.5 LPA", label: "Average Package", icon: Briefcase },
-      { value: "460+", label: "Total Offers", icon: Users },
+      { value: "76%", label: "Overall Placement Rate", icon: TrendingUp },
+      { value: "₹55 LPA", label: "Highest Package", icon: Award },
+      { value: "₹13.8 LPA", label: "Average Package", icon: Briefcase },
+      { value: "800+", label: "Total Offers", icon: Users },
     ],
     branchWise: [
   { name: "CSE", highest: 36, average: 11.2, median: 9.3,  placed: 148, percentage: 90 },

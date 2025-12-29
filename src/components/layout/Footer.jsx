@@ -6,6 +6,7 @@ const quickLinks = [
   { name: "Academics", href: "/academics" },
   { name: "Placements", href: "/placements" },
   { name: "Our Team", href: "/team" },
+  { name: "Developers", href: "/developer" },
   { name: "Contact Us", href: "/contact" },
   {name:"Developers", href:"/devs"},
 ];
@@ -123,6 +124,7 @@ export const Footer = () => {
               ))}
             </div>
             <p className="text-sm text-primary-foreground/70 text-center">
+              Made with love by amazing team
               © {new Date().getFullYear()} Training & Placement Cell, NIT Raipur. All rights reserved.
             </p>
           </div>

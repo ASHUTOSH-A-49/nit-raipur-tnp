@@ -1,0 +1,332 @@
+{
+  "btech": {
+    "title": "B.Tech Programs",
+    "duration": "4 Years",
+    "description": "NIT Raipur offers Bachelor of Technology (B.Tech) programs across 11 engineering disciplines and 1 architecture program. These programs are designed to develop strong technical foundations, problem-solving abilities, and industry-ready skills.",
+    "icon": "Cpu",
+    "branches": [
+      {
+        "name": "Computer Science & Engineering",
+        "established": 2000,
+        "degree": "B.Tech in CSE",
+        "seats": 114,
+        "vision": "To produce ethically strong, highly competent professionals in Computer Science and Engineering for serving the society.",
+        "mission": "To impart quality education, promote research and innovation, and develop leadership qualities through a robust curriculum.",
+        "description": "Focuses on software development, algorithms, data structures, AI, machine learning, and computer networks.",
+        "highlights": ["Programming & Algorithms", "AI & Machine Learning", "Database Systems", "Computer Networks"]
+      },
+      {
+        "name": "Information Technology",
+        "established": 2000,
+        "degree": "B.Tech in IT",
+        "seats": 114,
+        "vision": "To excel in information technology education and research for human development.",
+        "mission": "To provide quality technical education and develop professionals with strong ethics.",
+        "description": "Focuses on software engineering, web technologies, information security, and cloud computing.",
+        "highlights": ["Software Engineering", "Web Technologies", "Information Security", "Cloud Computing"]
+      },
+      {
+        "name": "Electronics & Communication Engineering",
+        "established": 1985,
+        "degree": "B.Tech in ECE",
+        "seats": 114,
+        "vision": "To be a leader in providing quality education and research in the field of Electronics and Communication Engineering.",
+        "mission": "To create an environment for students to acquire technical skills and research capabilities to solve global challenges.",
+        "description": "Covers analog and digital electronics, communication systems, signal processing, VLSI design, and embedded systems.",
+        "highlights": ["Signal Processing", "VLSI Design", "Communication Systems", "Embedded Systems"]
+      },
+      {
+        "name": "Electrical Engineering",
+        "established": 1958,
+        "degree": "B.Tech in Electrical Engineering",
+        "seats": 115,
+        "vision": "To produce globally competent electrical engineers capable of adapting to the changing needs of industry and society.",
+        "mission": "To provide quality education in Electrical Engineering with emphasis on professional ethics and research.",
+        "description": "Covers power systems, electrical machines, control systems, power electronics, and renewable energy technologies.",
+        "highlights": ["Power Systems", "Control Systems", "Power Electronics", "Renewable Energy"]
+      },
+      {
+        "name": "Mechanical Engineering",
+        "established": 1956,
+        "degree": "B.Tech in Mechanical Engineering",
+        "seats": 115,
+        "vision": "To be recognized as a center of excellence in Mechanical Engineering education and research.",
+        "mission": "To provide state-of-the-art education and research environment in Mechanical Engineering and allied areas.",
+        "description": "Focuses on thermodynamics, fluid mechanics, manufacturing processes, machine design, and automobile engineering.",
+        "highlights": ["Thermodynamics", "Manufacturing", "Machine Design", "CAD/CAM"]
+      },
+      {
+        "name": "Civil Engineering",
+        "established": 1958,
+        "degree": "B.Tech in Civil Engineering",
+        "seats": 97,
+        "vision": "To produce civil engineers of international standard who can contribute to infrastructure development.",
+        "mission": "To promote excellence in civil engineering education and research through collaborative learning.",
+        "description": "Covers structural engineering, geotechnical engineering, transportation, water resources, and environmental engineering.",
+        "highlights": ["Structural Engineering", "Transportation", "Water Resources", "Environmental Engineering"]
+      },
+      {
+        "name": "Metallurgical & Materials Engineering",
+        "established": 1956,
+        "degree": "B.Tech in Metallurgy",
+        "seats": 115,
+        "vision": "To emerge as a premier center for metallurgical and materials science education.",
+        "mission": "To foster innovation in material development and sustainable extraction processes.",
+        "description": "Focuses on material science, extractive metallurgy, physical metallurgy, and advanced materials.",
+        "highlights": ["Material Science", "Physical Metallurgy", "Advanced Materials", "Nanomaterials"]
+      },
+      {
+        "name": "Mining Engineering",
+        "established": 1956,
+        "degree": "B.Tech in Mining",
+        "seats": 97,
+        "vision": "To be a leading department for providing skilled mining engineers for sustainable mineral development.",
+        "mission": "To provide high-quality education and conduct research in mining and allied areas.",
+        "description": "Covers mine planning, rock mechanics, mineral processing, and mine safety.",
+        "highlights": ["Mine Planning", "Rock Mechanics", "Mineral Processing", "Mine Safety"]
+      },
+      {
+        "name": "Chemical Engineering",
+        "established": 1962,
+        "degree": "B.Tech in Chemical Engineering",
+        "seats": 79,
+        "vision": "To be a center of excellence for education and research in Chemical Engineering.",
+        "mission": "To provide a conducive atmosphere for students to excel in technical knowledge and research.",
+        "description": "Covers chemical process engineering, reaction engineering, process control, and environmental engineering.",
+        "highlights": ["Process Engineering", "Reaction Engineering", "Process Control", "Petrochemicals"]
+      },
+      {
+        "name": "Biomedical Engineering",
+        "established": 2003,
+        "degree": "B.Tech in Biomedical",
+        "seats": 80,
+        "vision": "To integrate engineering with life sciences for the betterment of healthcare.",
+        "mission": "To develop skilled professionals capable of designing advanced medical instrumentation.",
+        "description": "Combines engineering with medical sciences covering medical imaging, biomechanics, and clinical engineering.",
+        "highlights": ["Medical Imaging", "Biomechanics", "Biomaterials", "Clinical Engineering"]
+      },
+      {
+        "name": "Biotechnology",
+        "established": 2003,
+        "degree": "B.Tech in Biotechnology",
+        "seats": 79,
+        "vision": "To be a sound center for education and research in field of Biotechnology in India.",
+        "mission": "To provide adequate and scientific education in Biotechnology and prepare students for innovative careers.",
+        "description": "Covers genetic engineering, bioprocess technology, molecular biology, and bioinformatics.",
+        "highlights": ["Genetic Engineering", "Bioprocess Technology", "Molecular Biology", "Bioinformatics"]
+      },
+      {
+        "name": "Architecture",
+        "established": 1984,
+        "degree": "B.Arch",
+        "seats": 40,
+        "vision": "To create professionals with a sensitivity toward the environment and architectural aesthetics.",
+        "mission": "To promote excellence in architecture and planning through a blend of tradition and modernity.",
+        "description": "The B.Arch program develops skills in architectural design and urban planning over a 5-year duration.",
+        "highlights": ["Architectural Design", "Building Construction", "Urban Planning", "Sustainable Architecture"]
+      }
+    ]
+  },
+  "mtech": {
+    "title": "M.Tech Programs",
+    "duration": "2 Years",
+    "description": "Master of Technology (M.Tech) programs provide advanced specialization in engineering. The degrees are offered by respective departments (Civil, Electrical, Mech, etc.) focusing on specific domains.",
+    "icon": "BookOpen",
+    "branches": [
+      {
+        "name": "Information Technology",
+        "established": 2000,
+        "degree": "M.Tech in IT",
+        "seats": 25,
+        "vision": "To produce competent professionals with specialized knowledge in IT.",
+        "mission": "To impart quality technical education and promote research.",
+        "description": "Offered by IT Dept. Advanced study in software engineering, distributed systems, and network security.",
+        "highlights": ["Advanced Algorithms", "Distributed Systems", "Network Security"]
+      },
+      {
+        "name": "VLSI Design & Embedded Systems",
+        "established": 1985,
+        "degree": "M.Tech in VLSI",
+        "seats": 24,
+        "vision": "To lead in VLSI education and research.",
+        "mission": "To create skilled professionals in semiconductor technology.",
+        "description": "Offered by ECE Dept. Specialization in IC design, FPGA implementation, and embedded system architectures.",
+        "highlights": ["IC Design", "FPGA", "Embedded Systems"]
+      },
+      {
+        "name": "Power System & Power Electronics",
+        "established": 1958,
+        "degree": "M.Tech in Power Systems",
+        "seats": 25,
+        "vision": "To excel in power engineering education.",
+        "mission": "To research advanced control techniques for modern power grids.",
+        "description": "Offered by Electrical Dept. Advanced study of power system stability, control systems, and smart grids.",
+        "highlights": ["Smart Grids", "Control Theory", "Power Stability"]
+      },
+      {
+        "name": "Structural Engineering",
+        "established": 1958,
+        "degree": "M.Tech in Structural Engg",
+        "seats": 14,
+        "vision": "To be a centre of excellence in structural engineering.",
+        "mission": "To provide advanced knowledge in analysis and design of structures.",
+        "description": "Offered by Civil Dept. Focuses on advanced structural analysis, earthquake engineering, and concrete technology.",
+        "highlights": ["Earthquake Engg", "Concrete Technology", "Structural Dynamics"]
+      },
+      {
+        "name": "Water Resources Dev. & Irrigation",
+        "established": 1958,
+        "degree": "M.Tech in WRD & IE",
+        "seats": 13,
+        "vision": "To address global water challenges through engineering solutions.",
+        "mission": "To train professionals in sustainable water resource management.",
+        "description": "Offered by Civil Dept. Covers hydrology, irrigation engineering, and fluid mechanics.",
+        "highlights": ["Hydrology", "Irrigation Design", "Fluid Mechanics"]
+      },
+      {
+        "name": "Thermal Engineering",
+        "established": 1956,
+        "degree": "M.Tech in Thermal Engg",
+        "seats": 14,
+        "vision": "To advance knowledge in thermal sciences.",
+        "mission": "To develop efficient energy systems and thermal solutions.",
+        "description": "Offered by Mechanical Dept. Specialization in thermodynamics, heat transfer, and energy conversion.",
+        "highlights": ["Heat Transfer", "Thermodynamics", "Energy Systems"]
+      },
+      {
+        "name": "Machine Design",
+        "established": 1956,
+        "degree": "M.Tech in Machine Design",
+        "seats": 14,
+        "vision": "To foster innovation in mechanical design.",
+        "mission": "To create experts in CAD/CAM and mechanical system design.",
+        "description": "Offered by Mechanical Dept. Focuses on solid mechanics, vibration, and advanced machine design.",
+        "highlights": ["CAD/CAM", "Vibration Analysis", "Solid Mechanics"]
+      },
+       {
+        "name": "Industrial Engineering & Management",
+        "established": 1956,
+        "degree": "M.Tech in IEM",
+        "seats": 13,
+        "vision": "To optimize industrial processes and management.",
+        "mission": "To integrate engineering with management principles.",
+        "description": "Offered by Mechanical Dept. Study of operations research, supply chain management, and quality control.",
+        "highlights": ["Supply Chain", "Operations Research", "Quality Control"]
+      },
+       {
+        "name": "Energy & Environment",
+        "established": 1962,
+        "degree": "M.Tech in Energy & Env",
+        "seats": 14,
+        "vision": "To provide solutions for energy crisis and environmental protection.",
+        "mission": "To research renewable energy and pollution control technologies.",
+        "description": "Offered by Chemical Engg Dept. Interdisciplinary program covering renewable energy, waste management, and environmental impact.",
+        "highlights": ["Renewable Energy", "Waste Management", "Pollution Control"]
+      },
+      {
+        "name": "Applied Geology",
+        "established": 1961,
+        "degree": "M.Tech (Applied Geology)",
+        "seats": 19,
+        "vision": "To promote the sustainable development and conservation of mineral and natural resources.",
+        "mission": "To promote Human Resource Development in achieving goals of sustainable development and conservation of natural resources.",
+        "description": "A 3-year specialized program in structural geology, mineralogy, and mineral exploration.",
+        "highlights": ["Hydrogeology", "Mineral Exploration", "Remote Sensing & GIS"]
+      },
+      {
+        "name": "Urban Planning",
+        "established": 2018,
+        "degree": "M.Tech in Planning",
+        "seats": 20,
+        "vision": "To create sustainable and resilient urban environments.",
+        "mission": "To impart knowledge in urban planning, policy, and management.",
+        "description": "Offered by Architecture Dept. Focuses on town planning, smart cities, and sustainable urban development.",
+        "highlights": ["Smart Cities", "Urban Design", "Regional Planning"]
+      }
+    ]
+  },
+  "msc": {
+    "title": "M.Sc Programs",
+    "duration": "2 Years",
+    "description": "Master of Science programs offer advanced theoretical knowledge and research in fundamental and applied sciences.",
+    "icon": "FlaskConical",
+    "branches": [
+      {
+        "name": "Physics",
+        "established": 1956,
+        "degree": "M.Sc. in Physics",
+        "seats": 20,
+        "vision": "To provide quality scientific and technical education, training, innovation and creativity in Pure and Applied Physics.",
+        "mission": "To contribute towards the country through excellence in scientific education and research.",
+        "description": "Advanced study in quantum mechanics, solid state physics, and nuclear physics.",
+        "highlights": ["Quantum Mechanics", "Solid State Physics", "Cutting-edge Research"]
+      },
+      {
+        "name": "Chemistry",
+        "established": 1956,
+        "degree": "M.Sc. in Chemistry",
+        "seats": 20,
+        "vision": "To provide a platform of nationally recognized model of education to compete in a technology-centered world.",
+        "mission": "To nurture students by providing quality education in classroom teaching, laboratories, and research.",
+        "description": "Covers organic, inorganic, physical, and analytical chemistry.",
+        "highlights": ["Environmental Impact", "Materials Chemistry", "Catalysis"]
+      },
+      {
+        "name": "Mathematics",
+        "established": 1956,
+        "degree": "M.Sc. in Mathematics",
+        "seats": 20,
+        "vision": "To emerge as a center of excellence in mathematical sciences and its applications.",
+        "mission": "To promote excellence in mathematical education and research.",
+        "description": "Study of pure and applied mathematics including algebra and numerical methods.",
+        "highlights": ["Algebra", "Numerical Methods", "Analysis"]
+      }
+    ]
+  },
+  "phd": {
+    "title": "Ph.D Programs",
+    "duration": "3-5 Years",
+    "description": "Doctoral programs are offered across Engineering, Science, Management, and Humanities departments.",
+    "icon": "GraduationCap",
+    "branches": [
+      {
+        "name": "Humanities & Social Sciences",
+        "established": 1958,
+        "degree": "Ph.D. in Humanities",
+        "seats": "As per requirement",
+        "vision": "To render world class professionals efficient in communicative, managerial and entrepreneurial skills.",
+        "mission": "To develop an immersive learning and innovative environment and state-of-art interdisciplinary research.",
+        "description": "Research in English literature, Linguistics, Sociology, and Management.",
+        "highlights": ["Professional Communication", "Sociology", "Management"]
+      },
+      {
+        "name": "Engineering & Science Departments",
+        "established": 1956,
+        "degree": "Ph.D. (Engineering/Science)",
+        "seats": "Variable",
+        "vision": "To promote innovation and high-quality research in engineering and sciences.",
+        "mission": "To produce researchers who can solve technical problems of society.",
+        "description": "Ph.D opportunities in all major engineering branches, Physics, Chemistry, and Mathematics.",
+        "highlights": ["Advanced Research", "Publications", "Patents"]
+      }
+    ]
+  },
+  "mca": {
+    "title": "MCA Program",
+    "duration": "3 Years",
+    "description": "The Master of Computer Applications program focuses on high-level software development and IT management.",
+    "icon": "Monitor",
+    "branches": [
+      {
+        "name": "Master of Computer Applications",
+        "established": 1986,
+        "degree": "MCA",
+        "seats": 110,
+        "vision": "To provide best possible education that would help in developing students with strong technical backgrounds.",
+        "mission": "To impart quality education to meet the needs of professional societies and the nation.",
+        "description": "Covers data structures, cloud computing, AI/ML, and network security. Admission via NIMCET.",
+        "highlights": ["Software Development", "Cloud Computing", "NIMCET Entrance"]
+      }
+    ]
+  }
+}

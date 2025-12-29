@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout/Layout.jsx";
 import { TrendingUp, Award, Users, Briefcase } from "lucide-react";
+import placementBanner from "@/assets/placement-banner-2.png"; 
 import {
   BarChart,
   Bar,
@@ -133,19 +134,28 @@ const Placements = () => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="bg-hero-gradient py-20 lg:py-28">
-        <div className="container mx-auto px-4 lg:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary-foreground">
-              Placement Statistics
-            </h1>
-            <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto">
-              Comprehensive analysis of placement data and career outcomes.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+     {/* Hero */}
+<section
+  className="relative py-20 lg:py-28 flex items-center justify-center"
+  style={{
+    backgroundImage: `url(${placementBanner})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  {/* 🔷 Blue Overlay */}
+  <div className="absolute inset-0 bg-blue-950/70 backdrop-blur-[1px]" />
+
+  <div className="container mx-auto px-4 lg:px-8 text-center text-white relative z-10">
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+      <h1 className="text-4xl md:text-5xl font-bold mb-4">Placement Statistics</h1>
+      <p className="text-lg text-white/80 max-w-2xl mx-auto">
+        Comprehensive analysis of placement data and career outcomes.
+      </p>
+    </motion.div>
+  </div>
+</section>
 
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-4 lg:px-8">

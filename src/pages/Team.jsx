@@ -5,6 +5,8 @@ import { Layout } from "../components/layout/Layout.jsx";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { pastConveners } from "../data/pastConveners.js";
+import teamBanner from "../assets/team.jpeg"; // <— add this
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -211,21 +213,34 @@ const Team = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-hero-gradient py-20 lg:py-28">
-        <div className="container mx-auto px-4 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center text-primary-foreground"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Team</h1>
-            <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto">
-              Meet the dedicated student placement conveners who work tirelessly
-              to connect students with their dream careers.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+<section
+  className="relative py-20 lg:py-28 flex items-center justify-center"
+  style={{
+    backgroundImage: `url(${teamBanner})`,
+    backgroundSize: "cover",
+    backgroundPosition: " center 45%", // tweak if needed
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  {/* Blue overlay */}
+  <div className="absolute inset-0 bg-blue-950/60 " />
+
+  <div className="container relative mx-auto px-4 lg:px-8 text-center text-white z-10">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+    >
+      <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        Our Team
+      </h1>
+      <p className="text-lg text-white/90 max-w-2xl mx-auto">
+        Meet the dedicated student placement conveners who work tirelessly
+        to connect students with their dream careers.
+      </p>
+    </motion.div>
+  </div>
+</section>
+
 
       {/* Content */}
       <section className="py-16 bg-background">

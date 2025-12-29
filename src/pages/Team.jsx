@@ -13,19 +13,22 @@ gsap.registerPlugin(ScrollTrigger);
 
 /* ================= IMAGE HELPER ================= */
 
+// Import ALL images from team2026 (Vite-safe)
 const teamImages = import.meta.glob(
   "../data/team_2026/**/*.{jpg,jpeg,png,JPG,JPEG,PNG}",
   { eager: true }
 );
 
+// Normalize string for comparison
 const normalize = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/\s+/g, " ")
-    .replace(/[_-]+/g, " ")
-    .replace(/[^a-z0-9 ]/g, "");
+    .replace(/\s+/g, " ")        // normalize spaces
+    .replace(/[_-]+/g, " ")      // _ or - → space
+    .replace(/[^a-z0-9 ]/g, ""); // remove special chars
 
+// Universal matcher
 const getConvenerImage = (name) => {
   const target = normalize(name);
 
@@ -39,8 +42,10 @@ const getConvenerImage = (name) => {
       return mod.default;
     }
   }
-  return null;
+
+  return null; // fallback handled in UI
 };
+
 
 /* ================= TEAM CARD ================= */
 
@@ -58,42 +63,37 @@ const TeamCard = ({ member, index }) => {
       {
         opacity: 0,
         y: isMobile ? 0 : 40,
-        x: isMobile ? 30 : 0,
+        x: isMobile ? 40 : 0,
+        scale: 0.95,
       },
       {
         opacity: 1,
         y: 0,
         x: 0,
+        scale: 1,
         duration: 0.45,
         ease: "power3.out",
         scrollTrigger: {
           trigger: card,
           start: "top bottom-=80",
         },
-        delay: index * 0.04,
+        delay: index * 0.03,
       }
     );
   }, [index]);
 
   return (
     <div ref={cardRef} className="h-[420px]">
-      <div className="w-full h-full bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-
+      <div className="w-full h-full bg-card rounded-2xl overflow-hidden shadow-lg hover:scale-[1.03] transition-transform">
+        
         {/* Avatar */}
         <div className="relative h-48 bg-gradient-to-br from-primary to-accent flex items-center justify-center">
           {member.image ? (
-            <div
-              className="
-                w-44 h-44 rounded-full
-                border-4 border-white/30
-                shadow-xl
-                bg-center bg-cover bg-no-repeat
-                transition-transform duration-300
-                hover:scale-[1.03]
-              "
-              style={{
-                backgroundImage: `url(${member.image})`,
-              }}
+            <img
+              src={member.image}
+              alt={member.name}
+              loading="lazy"
+              className="w-40 h-40 rounded-full object-cover border-4 border-white/30 shadow-xl"
             />
           ) : (
             <div className="w-24 h-24 rounded-full bg-primary-foreground/20 flex items-center justify-center text-primary-foreground text-3xl font-bold">
@@ -157,6 +157,7 @@ const Team = () => {
 
   return (
     <Layout>
+      {/* Hero */}
       <section className="bg-hero-gradient py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
@@ -175,22 +176,132 @@ const Team = () => {
         </div>
       </section>
 
+      {/* Content */}
       <section className="py-16 bg-background">
         <div className="container mx-auto">
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {getCurrentData().map((m, i) => (
-              <TeamCard
-                key={i}
-                index={i}
-                member={{
-                  ...m,
-                  image: getConvenerImage(m.name),
-                }}
-              />
+          {/* MAIN TABS */}
+          <div className="flex justify-center gap-4 mb-10">
+            {["current", "past"].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-6 py-2 rounded-md border ${
+                  activeTab === tab
+                    ? "bg-blue-900 text-white"
+                    : "bg-background text-muted-foreground"
+                }`}
+              >
+                {tab === "current" ? "Current Conveners" : "Past Conveners"}
+              </button>
             ))}
           </div>
 
+          {/* CURRENT */}
+          {activeTab === "current" && (
+            <>
+              <div className="flex justify-center gap-4 mb-12">
+                {[
+                  { key: "all", label: "All" },
+                  { key: "core", label: "Core" },
+                  { key: "nonCore", label: "Non-Core" },
+                ].map((t) => (
+                  <button
+                    key={t.key}
+                    onClick={() => setCurrentFilter(t.key)}
+                    className={`px-5 py-2 rounded-md border ${
+                      currentFilter === t.key
+                        ? "bg-blue-900 text-white"
+                        : "bg-background text-muted-foreground"
+                    }`}
+                  >
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {getCurrentData().map((m, i) => (
+                  <TeamCard
+                    key={i}
+                    index={i}
+                    member={{
+                      ...m,
+                      image: getConvenerImage(m.name),
+                    }}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+
+          {/* PAST */}
+          {activeTab === "past" && (
+            <div className="space-y-16">
+              <div className="flex justify-end">
+                <select
+                  value={selectedBranch}
+                  onChange={(e) => setSelectedBranch(e.target.value)}
+                  className="rounded-xl border bg-background px-4 py-3 text-sm"
+                >
+                  <option value="All">All Branches</option>
+                  {[...new Set(Object.values(pastConveners).flat().map(m => m.branch))]
+                    .sort()
+                    .map(branch => (
+                      <option key={branch} value={branch}>
+                        {branch}
+                      </option>
+                    ))}
+                </select>
+              </div>
+
+              {Object.keys(pastConveners)
+                .sort((a, b) => b - a)
+                .map((year) => {
+                  const data =
+                    selectedBranch === "All"
+                      ? pastConveners[year]
+                      : pastConveners[year].filter(
+                          (m) => m.branch === selectedBranch
+                        );
+
+                  if (!data.length) return null;
+
+                  return (
+                    <div key={year} className="space-y-5">
+                      <h3 className="text-xl font-semibold">
+                        Academic Year {year}
+                      </h3>
+
+                      <div className="rounded-2xl border bg-card shadow-sm overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead className="bg-blue-50 border-b">
+                            <tr>
+                              <th className="px-6 py-4 text-left">Name</th>
+                              <th className="px-6 py-4 text-left">Branch</th>
+                              <th className="px-6 py-4 text-left">Contact</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {data.map((m, i) => (
+                              <tr key={i}>
+                                <td className="px-6 py-4">{m.name}</td>
+                                <td className="px-6 py-4">{m.branch}</td>
+                                <td className="px-6 py-4">
+                                  <a href={`tel:${m.contact}`}>
+                                    {m.contact}
+                                  </a>
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          )}
         </div>
       </section>
     </Layout>

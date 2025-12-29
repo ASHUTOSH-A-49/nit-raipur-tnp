@@ -4,7 +4,6 @@ import { Mail, Phone } from "lucide-react";
 import { Layout } from "../components/layout/Layout.jsx";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { pastConveners } from "../data/pastConveners.js";
 import teamBanner from "../assets/team.jpeg"; // <— add this
 
 import {

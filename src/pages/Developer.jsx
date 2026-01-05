@@ -4,6 +4,12 @@ import { Linkedin, Mail, Phone } from "lucide-react";
 import { Layout } from "../components/layout/Layout.jsx";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import indreshImg from "../data/developers/indresh_verma.jpg";
+import soumyajeetImg from "../data/developers/Soumyajeet.jpeg";
+import mayurImg from "../data/developers/mayur_nanwani.jpg";
+import shouryaImg from "../data/developers/shourya_sinha.jpg"; 
+import ashutoshImg from "../data/developers/ashutosh_behera.jpeg"; 
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,28 +20,28 @@ const seniors = [
     name: "Indresh Verma",
     branch: "Computer Science & Engineering",
     batch: "2023 – 2027",
-    email: "indresh@company.com",
-    contact: "+91 9876543210",
+    email: "indreshkverma2004@gmail.com",
+    contact: "+91 8817690820",
     linkedin: "https://www.linkedin.com/in/indreshverma04/",
-    photo: "/team/indresh.jpg",
+    photo: indreshImg,
   },
   {
     name: "Mayur Nanwani",
     branch: "Electronics Engineering",
     batch: "2023 – 2027",
-    email: "mayur@company.com",
-    contact: "+91 9876543212",
+    email: "mayurnanwani17@gmail.com",
+    contact: "+91 9399556248",
     linkedin: "https://www.linkedin.com/in/mayur-nanwani-7705b5153/",
-    photo: "/team/mayur.jpg",
+    photo: mayurImg,
   },
   {
     name: "Soumyajeet Ghatak",
     branch: "Information Technology",
     batch: "2023 – 2027",
-    email: "soumyajeet@company.com",
-    contact: "+91 9876543211",
+    email: "soumyajeetghatak50@gmail.com",
+    contact: "+91 6294290773",
     linkedin: "https://www.linkedin.com/in/soumyajeet-ghatak-a98ab62a1/",
-    photo: "/team/soumyajeet.jpg",
+    photo: soumyajeetImg,
   },
 ];
 
@@ -48,7 +54,7 @@ const executives = [
     contact: "+91 9302744613",
     linkedin:
       "https://www.linkedin.com/in/ashutosh-behera-211b6b252",
-    photo: "/team/ashutosh.jpg",
+    photo: ashutoshImg,
   },
   {
     name: "Ronanki Dinesh",
@@ -77,7 +83,7 @@ const executives = [
     contact: "+91 7987949123",
     linkedin:
       "https://www.linkedin.com/in/shourya-sinha-12ba0732b/",
-    photo: "/team/shourya.jpg",
+    photo: shouryaImg,
   },
 ];
 
@@ -143,17 +149,18 @@ const DeveloperCard = ({ member, index }) => {
           style={{ backfaceVisibility: "hidden" }}
         >
           <div className="h-44 bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-            <div className="w-28 h-28 rounded-full overflow-hidden ring-4 ring-white/40 shadow-md">
-              <img
-                src={member.photo}
-                alt={member.name}
-                className="w-full h-full object-cover"
-                loading="lazy"
-                onError={(e) => {
-                  e.currentTarget.src = "/team/default-avatar.png";
-                }}
-              />
-            </div>
+<div className="w-28 h-28 rounded-full overflow-hidden ring-4 ring-white/40 shadow-md group">
+  <img
+    src={member.photo}
+    alt={member.name}
+    className="
+      w-full h-full object-cover
+      transition-transform duration-500 ease-out
+      group-hover:scale-110
+    "
+  />
+</div>
+
           </div>
 
           <div className="p-5 text-center">

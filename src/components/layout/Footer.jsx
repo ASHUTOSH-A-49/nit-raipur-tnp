@@ -8,7 +8,6 @@ const quickLinks = [
   { name: "Our Team", href: "/team" },
   { name: "Developers", href: "/developer" },
   { name: "Contact Us", href: "/contact" },
-  {name:"Developers", href:"/devs"},
 ];
 
 const resourceLinks = [

@@ -23,19 +23,20 @@ const placementData = {
       { value: "76.73%", label: "Overall Placement Rate", icon: TrendingUp },
       { value: "₹60 LPA", label: "Highest Package", icon: Award },
       { value: "₹11.1 LPA", label: "Average Package", icon: Briefcase },
-      { value: "700+", label: "Total Offers", icon: Users },
+      { value: "750+", label: "Total Offers", icon: Users },
     ],
     branchWise: [
-  { name: "CSE", highest: 40, average: 12.2, median: 10.1, placed: 165, percentage: 95 },
-  { name: "IT",  highest: 34, average: 11.6, median: 9.9,  placed: 75,  percentage: 92 },
-
-  { name: "ECE", highest: 28, average: 9.9,  median: 8.6,  placed: 98,  percentage: 88 },
-  { name: "EE",  highest: 24, average: 9.0,  median: 7.7,  placed: 85,  percentage: 82 },
-  { name: "ME",  highest: 22, average: 8.6,  median: 7.3,  placed: 78,  percentage: 75 },
-  { name: "CE",  highest: 19, average: 7.8,  median: 6.5,  placed: 65,  percentage: 70 },
-
-  { name: "MME", highest: 16, average: 7.0,  median: 5.9,  placed: 35,  percentage: 68 },
-  { name: "CHE", highest: 14, average: 6.6,  median: 5.5,  placed: 32,  percentage: 65 },
+  { name: "CSE", highest: 60, average: 19, median: 13.65, placed: 91, percentage: 85.8 },
+  { name: "IT",  highest: 60, average: 19.85, median: 13.65, placed: 95, percentage: 85.5 },
+  { name: "ECE", highest: 58.3, average: 14.03, median: 11.4, placed: 76, percentage: 79.2 },
+  { name: "EE",  highest: 42, average: 9.75, median: 8, placed: 95, percentage: 90.4 },
+  { name: "ME",  highest: 24, average: 8.67, median: 8, placed: 89, percentage: 94.6 },
+  { name: "CE",  highest: 19.85, average: 6.74, median: 6, placed: 51, percentage: 63.75 },
+  { name: "MME", highest: 14.45, average: 9.15, median: 8, placed: 72, percentage: 85 },
+  { name: "CHE", highest: 13, average: 6.3, median: 5.2, placed: 63, percentage: 91.3 },
+  { name: "MIN", highest: 16.5, average: 10.77, median: 10, placed: 46, percentage: 54.7 },
+  { name: "BME", highest: 15, average: 11.37, median: 10.5, placed: 6, percentage: 20 },
+  { name: "BT",  highest: 13.6, average: 10.56, median: 10.8, placed: 4, percentage: 10 },
 ],
 
     sectorWise: [
@@ -44,12 +45,6 @@ const placementData = {
       { name: "Consulting", value: 12 },
       { name: "Finance", value: 10 },
       { name: "Others", value: 8 },
-    ],
-    salaryStats: [
-      { name: "Highest", value: 54 },
-      { name: "Average", value: 12.5 },
-      { name: "Median", value: 10.2 },
-      { name: "Lowest", value: 4.5 },
     ],
   },
 
@@ -61,30 +56,24 @@ const placementData = {
       { value: "750+", label: "Total Offers", icon: Users },
     ],
     branchWise: [
-  { name: "CSE", highest: 38, average: 11.8, median: 9.8,  placed: 155, percentage: 92 },
-  { name: "IT",  highest: 32, average: 11.1, median: 9.4,  placed: 70,  percentage: 90 },
-
-  { name: "ECE", highest: 26, average: 9.4,  median: 8.2,  placed: 90,  percentage: 85 },
-  { name: "EE",  highest: 23, average: 8.7,  median: 7.4,  placed: 80,  percentage: 78 },
-  { name: "ME",  highest: 21, average: 8.3,  median: 7.0,  placed: 72,  percentage: 72 },
-  { name: "CE",  highest: 18, average: 7.5,  median: 6.2,  placed: 60,  percentage: 65 },
-
-  { name: "MME", highest: 15, average: 6.8,  median: 5.6,  placed: 30,  percentage: 62 },
-  { name: "CHE", highest: 13, average: 6.3,  median: 5.2,  placed: 28,  percentage: 60 },
-],
-
+      { name: "CSE", highest: 62, average: 19, median: 13.65,  placed: 84, percentage: 80 },
+      { name: "IT",  highest: 58, average: 19.85, median: 13.65,  placed: 89,  percentage: 80 },
+      { name: "ECE", highest: 58.3, average: 14.03,  median: 11.4,  placed: 96,  percentage: 85 },
+      { name: "EE",  highest: 42, average: 9.75,  median: 8,  placed: 92,  percentage: 92 },
+      { name: "ME",  highest: 24, average: 8.67,  median: 8,  placed: 87,  percentage: 92 },
+      { name: "CE",  highest: 19.85, average: 6.74,  median: 6,  placed: 50,  percentage: 62.5 },
+      { name: "MME", highest: 14.45, average: 9.15,  median: 8,  placed: 71,  percentage: 73.2 },
+      { name: "CHE", highest: 13, average: 6.3,  median: 5.2,  placed: 28,  percentage: 60 },
+      { name: "MIN", highest: 16.5, average: 10.77, median: 10, placed: 23, percentage: 27.4},
+      { name: "BME", highest: 15, average: 11.37, median: 10.5, placed: 6, percentage: 14 },
+      { name: "BT",  highest: 13.6, average: 10.56, median: 10.8, placed: 4, percentage: 9 },
+    ],
     sectorWise: [
       { name: "IT/Software", value: 48 },
       { name: "Core Engineering", value: 22 },
       { name: "Consulting", value: 14 },
       { name: "Finance", value: 9 },
       { name: "Others", value: 7 },
-    ],
-    salaryStats: [
-      { name: "Highest", value: 48 },
-      { name: "Average", value: 11.8 },
-      { name: "Median", value: 9.6 },
-      { name: "Lowest", value: 4.2 },
     ],
   },
 
@@ -96,18 +85,18 @@ const placementData = {
       { value: "800+", label: "Total Offers", icon: Users },
     ],
     branchWise: [
-  { name: "CSE", highest: 36, average: 11.2, median: 9.3,  placed: 148, percentage: 90 },
-  { name: "IT",  highest: 30, average: 10.5, median: 8.9,  placed: 65,  percentage: 88 },
-
-  { name: "ECE", highest: 25, average: 8.9,  median: 7.8,  placed: 85,  percentage: 82 },
-  { name: "EE",  highest: 22, average: 8.2,  median: 7.0,  placed: 75,  percentage: 75 },
-  { name: "ME",  highest: 20, average: 7.9,  median: 6.7,  placed: 68,  percentage: 70 },
-  { name: "CE",  highest: 17, average: 7.1,  median: 5.9,  placed: 55,  percentage: 62 },
-
-  { name: "MME", highest: 14, average: 6.4,  median: 5.3,  placed: 28,  percentage: 58 },
-  { name: "CHE", highest: 12, average: 6.0,  median: 4.9,  placed: 25,  percentage: 55 },
-],
-
+      { name: "CSE", highest: 36, average: 11.2, median: 9.3,  placed: 87, percentage: 83.65},
+      { name: "IT",  highest: 30, average: 10.5, median: 8.9,  placed: 67,  percentage: 84.4},
+      { name: "ECE", highest: 25, average: 8.9,  median: 7.8,  placed: 84,  percentage: 81.5 },
+      { name: "EE",  highest: 22, average: 8.2,  median: 7.0,  placed: 85,  percentage: 80.2 },
+      { name: "ME",  highest: 20, average: 7.9,  median: 6.7,  placed: 83,  percentage: 81.37 },
+      { name: "CE",  highest: 17, average: 7.1,  median: 5.9,  placed: 59,  percentage: 78.7 },
+      { name: "MME", highest: 14, average: 6.4,  median: 5.3,  placed: 71,  percentage: 71.7},
+      { name: "CHE", highest: 12, average: 6.0,  median: 4.9,  placed: 67,  percentage: 90.5 },
+      { name: "MIN", highest: 13, average: 6.5, median: 5.4, placed: 60, percentage: 71.42 },
+      { name: "BME", highest: 10, average: 5.6, median: 4.5, placed: 28, percentage: 48.2 },
+      { name: "BT",  highest: 11, average: 5.9, median: 4.8, placed: 17, percentage: 34.7 },
+    ],
     sectorWise: [
       { name: "IT/Software", value: 50 },
       { name: "Core Engineering", value: 20 },
@@ -118,6 +107,7 @@ const placementData = {
   },
 };
 
+
 const COLORS = [
   "hsl(213, 78%, 21%)",
   "hsl(210, 100%, 56%)",
@@ -125,6 +115,21 @@ const COLORS = [
   "hsl(45, 93%, 47%)",
   "hsl(215, 20%, 65%)",
 ];
+
+const branchFullNameMap = {
+  CSE: "Computer Science & Engineering",
+  IT: "Information Technology",
+  ECE: "Electronics & Communication ",
+  EE: "Electrical ",
+  ME: "Mechanical ",
+  CE: "Civil ",
+  CHE: "Chemical ",
+  MME: "Metallurgical & Materials ",
+  BME: "Biomedical ",
+  BT: "Biotechnology",
+  MIN: "Mining ",
+};
+
 
 const Placements = () => {
   const [selectedBatch, setSelectedBatch] = useState("2025");
@@ -227,7 +232,7 @@ const Placements = () => {
       className="bg-card p-6 rounded-xl shadow-elegant border-t-4 border-primary"
     >
       <h4 className="text-lg font-semibold text-center mb-4">
-        {b.name}
+        {branchFullNameMap[b.name] || b.name}
       </h4>
 
       <div className="space-y-2 text-sm">
@@ -289,11 +294,68 @@ const Placements = () => {
               </ResponsiveContainer>
             </div>
           </div>
+          {/* ================= DOWNLOAD PLACEMENT DOCUMENTS ================= */}
+<section className="mt-10">
+  <div className="container mx-auto px-4 lg:px-8 text-center">
+    <h2 className="text-2xl font-bold mb-6">
+      Download Placement Statistics (Year-wise)
+    </h2>
+
+    <p className="text-muted-foreground mb-8">
+      Official placement statistics documents for previous academic years.
+    </p>
+
+    <div className="flex flex-wrap justify-center gap-4">
+      <a
+        href="/Placement_Doc/senate_report_2024.pdf"
+        download
+        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
+      >
+        Placement Stats 2024-2025
+      </a>
+
+      <a
+        href="/Placement_Doc/senate_report_2023.pdf"
+        download
+        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
+      >
+        Placement Stats 2023-2024
+      </a>
+
+      <a
+        href="/Placement_Doc/senate_report_2022.pdf"
+        download
+        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
+      >
+        Placement Stats 2022-2023
+      </a>
+
+      <a
+        href="/Placement_Doc/senate_report_2021.pdf"
+        download
+        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
+      >
+        Placement Stats 2021-2022
+      </a>
+
+      <a
+        href="/Placement_Doc/senate_report_2020.pdf"
+        download
+        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
+      >
+        Placement Stats 2020-2021
+      </a>
+    </div>
+  </div>
+</section>
+
 
           
 
         </div>
       </section>
+
+      
     </Layout>
   );
 };

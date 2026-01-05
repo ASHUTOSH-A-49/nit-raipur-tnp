@@ -9,6 +9,7 @@ import soumyajeetImg from "../data/developers/Soumyajeet.jpeg";
 import mayurImg from "../data/developers/mayur_nanwani.jpg";
 import shouryaImg from "../data/developers/shourya_sinha.jpg"; 
 import ashutoshImg from "../data/developers/ashutosh_behera.jpeg"; 
+import dineshImg from "../data/developers/ronanki_dinesh.jpeg"; 
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -63,7 +64,7 @@ const executives = [
     email: "dineshronanki777@gmail.com",
     contact: "+91 7587794306",
     linkedin: "https://www.linkedin.com/in/ronanki-dinesh",
-    photo: "/team/dinesh.jpg",
+    photo: dineshImg,
   },
   {
     name: "S Vaibhavi",

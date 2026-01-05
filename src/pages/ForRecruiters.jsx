@@ -24,6 +24,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion.jsx"; // <-- Updated
 
+import CCCImg from "@/assets/facilities/ccc.jpeg";
+import LibraryImg from "@/assets/facilities/central-library.jpeg";
+import GardenImg from "@/assets/facilities/cg.jpeg";
+import LabImg from "@/assets/facilities/computer-lab.jpeg";
+import GuestHouseImg from "@/assets/facilities/guest-house.jpeg";
+import GDRoomImg from "@/assets/facilities/interview-panel.jpeg";
+import PPTHallImg from "@/assets/facilities/ppt-hall.jpeg";
+
 const whyRecruitReasons = [
   {
     icon: GraduationCap,
@@ -95,38 +103,38 @@ const placementSteps = [
   }
 ];
 
-const facilities = [
-  {
-    icon: Monitor,
-    title: "Central Computer Centre",
-    description: "State-of-the-art facility for online tests with 250+ computer systems at one place."
-  },
-  {
-    icon: Presentation,
-    title: "Auditorium & Seminar Halls",
-    description: "Well-equipped and spacious auditorium for pre-placement talks and company presentations."
-  },
-  {
-    icon: Wifi,
-    title: "Video Conferencing",
-    description: "Advanced video conferencing facility for remote interviews and virtual recruitment drives."
-  },
-  {
-    icon: Users,
-    title: "GD & PI Rooms",
-    description: "Well-equipped rooms specifically designed for group discussions and personal interviews."
-  },
-  {
-    icon: Home,
-    title: "Guest House",
-    description: "Comfortable accommodation facilities for recruiting team members during campus visits."
-  },
-  {
-    icon: HeadphonesIcon,
-    title: "Dedicated Support",
-    description: "Fully computerized and air-conditioned TPO office with dedicated placement coordinators."
-  }
-];
+// const facilities = [
+//   {
+//     icon: Monitor,
+//     title: "Central Computer Centre",
+//     description: "State-of-the-art facility for online tests with 250+ computer systems at one place."
+//   },
+//   {
+//     icon: Presentation,
+//     title: "Auditorium & Seminar Halls",
+//     description: "Well-equipped and spacious auditorium for pre-placement talks and company presentations."
+//   },
+//   {
+//     icon: Wifi,
+//     title: "Video Conferencing",
+//     description: "Advanced video conferencing facility for remote interviews and virtual recruitment drives."
+//   },
+//   {
+//     icon: Users,
+//     title: "GD & PI Rooms",
+//     description: "Well-equipped rooms specifically designed for group discussions and personal interviews."
+//   },
+//   {
+//     icon: Home,
+//     title: "Guest House",
+//     description: "Comfortable accommodation facilities for recruiting team members during campus visits."
+//   },
+//   {
+//     icon: HeadphonesIcon,
+//     title: "Dedicated Support",
+//     description: "Fully computerized and air-conditioned TPO office with dedicated placement coordinators."
+//   }
+// ];
 
 const faqs = [
   {
@@ -180,6 +188,17 @@ const documents = [
     type: "DOC",
     link: "https://tpo.nitrr.ac.in/"
   }
+];
+
+
+const facilities = [
+  { title: "Central Computer Centre", description: "High-end computing facilities for online tests.", image: CCCImg },
+  { title: "Central Library", description: "Resource-rich environment for students.", image: LibraryImg },
+  { title: "Central Garden", description: "Serene environment within the campus.", image: GardenImg },
+  { title: "Computer Lab", description: "Specialized labs for technical assessments.", image: LabImg },
+  { title: "Guest House", description: "Comfortable stay for visiting recruiters.", image: GuestHouseImg },
+  { title: "GD & PI Rooms", description: "Dedicated spaces for interviews and discussions.", image: GDRoomImg },
+  { title: "PPT Hall", description: "State-of-the-art Auditorium & Seminar Halls.", image: PPTHallImg },
 ];
 
 const ForRecruiters = () => {
@@ -304,47 +323,63 @@ const ForRecruiters = () => {
       </section>
 
       {/* Facilities Section */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Facilities Offered
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              World-class infrastructure for a seamless recruitment experience
-            </p>
-          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {facilities.map((facility, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Card className="h-full bg-gradient-to-br from-card to-secondary/20 border-border hover:border-primary/50 transition-all duration-300">
-                  <CardContent className="p-6 flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <facility.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-foreground mb-2">{facility.title}</h3>
-                      <p className="text-muted-foreground text-sm">{facility.description}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+      
+      <section className="py-16 bg-background">
+  <div className="container mx-auto px-4 lg:px-8">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="text-center mb-12"
+    >
+      <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+        Facilities Offered
+      </h2>
+      <p className="text-muted-foreground max-w-2xl mx-auto">
+        World-class infrastructure for a seamless recruitment experience
+      </p>
+    </motion.div>
+
+    {/* Grid: 1 col on mobile, 3 cols on desktop, centered */}
+    {/* Grid: 1 col on mobile, 2 on tablet, 3 on desktop */}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {facilities.map((facility, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className={`
+        group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer shadow-lg
+        ${index === 6 ? "lg:col-start-2" : ""} 
+      `}
+      /* The line above checks if it is the 7th item (index 6) and centers it on desktop */
+    >
+      {/* Background Image */}
+      <img
+        src={facility.image}
+        alt={facility.title}
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+      />
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+        <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <h3 className="text-xl font-bold text-white mb-2">
+            {facility.title}
+          </h3>
+          <p className="text-gray-200 text-sm leading-relaxed">
+            {facility.description}
+          </p>
         </div>
-      </section>
+      </div>
+    </motion.div>
+  ))}
+</div>
+  </div>
+</section>
 
       {/* FAQs Section */}
       <section className="py-16 bg-secondary/30">

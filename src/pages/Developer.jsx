@@ -10,6 +10,7 @@ import mayurImg from "../data/developers/mayur_nanwani.jpg";
 import shouryaImg from "../data/developers/shourya_sinha.jpg"; 
 import ashutoshImg from "../data/developers/ashutosh_behera.jpeg"; 
 import dineshImg from "../data/developers/ronanki_dinesh.jpeg"; 
+import vaibhaviImg from "../data/developers/vaibhavi.jpeg"; 
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -74,7 +75,7 @@ const executives = [
     contact: "+91 9902058369",
     linkedin:
       "https://www.linkedin.com/in/vaibhavi-s-680bb3330/",
-    photo: "/team/vaibhavi.jpg",
+    photo: vaibhaviImg,
   },
   {
     name: "Shourya Sinha",

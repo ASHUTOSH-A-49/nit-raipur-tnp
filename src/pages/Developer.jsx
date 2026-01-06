@@ -29,7 +29,7 @@ const seniors = [
   },
   {
     name: "Mayur Nanwani",
-    branch: "Electronics Engineering",
+    branch: "Electronics & Communication Engineering",
     batch: "2023 – 2027",
     email: "mayurnanwani17@gmail.com",
     contact: "+91 9399556248",

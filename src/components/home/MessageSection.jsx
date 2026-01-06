@@ -13,19 +13,21 @@ const messages = [
     name: "Dr. N V Ramana Rao",
     role: "Director, NIT Raipur",
     message:
-      "Industry and Institute collaborations and linkages are a must for sustainable growth of technology, economy, and human civilisation. NIT Raipur is sincerely working for symbiotic relationship with industries since its inception in 1956. Campus placement process is an important aspect of this relationship and further strengthening this relationship by undertaking a visit to our Institute for the campus placement of our students. NIT Raipur, established as one of the earliest engineering colleges of independent India, has continuously strived to achieve excellence in technology education and research; in the process, it has carved a niche for itself on the national level. On account of its academic atmosphere, well qualified and committed faculty members, regular extra-curricular activities and regular and examination procedure, the institute ensures the holistic development of students. The distinguished alumni of the institute have contributed significantly to various fields such as industry, academia, and administration and bear a testimony to the caliber of the institution. I am confident that a placement visit to our campus will be mutually beneficial and students of the institute will prove to be an asset to your organization. I heartily welcome you to NIT Raipur and hope that this interaction leads to a lasting partnership between our institute and your organisation.",
+      "Industry and Institute collaborations and linkages are a must for sustainable growth of technology, economy, and human civilisation. NIT Raipur is sincerely working for symbiotic relationship with industries since its inception in 1956. Campus placement process is an important aspect of this relationship and further strengthening this relationship by undertaking a visit to our Institute for the campus placement of our students. I heartily welcome you to NIT Raipur and hope that this interaction leads to a lasting partnership between our institute and your organisation.",
   },
   {
     image: cdchead,
     name: "Dr. Samir Bajpai",
     role: "Head, Career Development Center",
-    message: "",
+    message:
+      "NIT Raipur, established as one of the earliest engineering colleges of independent India, has continuously strived to achieve excellence in technology education and research; in the process, it has carved a niche for itself on the national level. On account of its academic atmosphere, well qualified and committed faculty members, regular extra-curricular activities and regular and examination procedure, the institute ensures the holistic development of students.",
   },
   {
     image: tpcHeadImage,
     name: "Dr. Vivek Kumar Gaba",
     role: "Faculty In-Charge, Placement Cell",
-    message: "",
+    message:
+      "The distinguished alumni of the institute have contributed significantly to various fields such as industry, academia, and administration and bear a testimony to the caliber of the institution. I am confident that a placement visit to our campus will be mutually beneficial and students of the institute will prove to be an asset to your organization.",
   },
 ];
 
@@ -78,7 +80,9 @@ export const MessageSection = () => {
               className="w-24 h-24 rounded-full object-cover border-4 border-primary/20"
             />
             <div className="text-center md:text-left">
-              <h3 className="font-bold text-xl text-foreground">{messages[0].name}</h3>
+              <h3 className="font-bold text-xl text-foreground">
+                {messages[0].name}
+              </h3>
               <p className="text-sm text-accent">{messages[0].role}</p>
             </div>
           </div>
@@ -88,7 +92,7 @@ export const MessageSection = () => {
           </p>
         </motion.div>
 
-        {/* 🔹 TWO SMALL CARDS (side-by-side desktop / stacked mobile) */}
+        {/* 🔹 TWO SMALL CARDS */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1100px] mx-auto">
           {messages.slice(1).map((item, i) => (
             <motion.div
@@ -102,16 +106,24 @@ export const MessageSection = () => {
               "
             >
               <Quote className="absolute right-4 top-4 w-8 h-8 text-primary/10" />
-              <div className="flex items-center gap-4">
+
+              <div className="flex items-center gap-4 mb-4">
                 <img
                   src={item.image}
                   className="w-20 h-20 rounded-full object-cover border-4 border-primary/20"
                 />
                 <div>
-                  <h3 className="font-bold text-lg text-foreground">{item.name}</h3>
+                  <h3 className="font-bold text-lg text-foreground">
+                    {item.name}
+                  </h3>
                   <p className="text-sm text-accent">{item.role}</p>
                 </div>
               </div>
+
+              {/* ✅ MESSAGE ADDED */}
+              <p className="text-muted-foreground italic leading-relaxed text-justify text-sm">
+                "{item.message}"
+              </p>
             </motion.div>
           ))}
         </div>

@@ -3,30 +3,27 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 
 /* -------------------------------------------
-   OLD IMPORTS (COMMENTED - DO NOT DELETE)
-------------------------------------------- */
-// import amazon from "@/assets/logos/amazon.jpg";
-// import samsung from "@/assets/logos/samsung.jpg";
-// import deloitte from "@/assets/logos/deloitte.jpg";
-// import siemens from "@/assets/logos/siemens.jpg";
-// import infosys from "@/assets/logos/infosys.jpg";
-// import lnt from "@/assets/logos/lnt.jpg";
-// import vedanta from "@/assets/logos/vedanta.jpg";
-// import adobe from "@/assets/logos/adobe.jpg";
-// import cognizant from "@/assets/logos/cognizant.jpg";
-// import barclays from "@/assets/logos/barclays.jpg";
-// import jpmorgan from "@/assets/logos/jpmorgan.jpg";
-// import texas from "@/assets/logos/texas.jpg";
-// import coalIndia from "@/assets/logos/coalindia.jpg";
-// import ongc from "@/assets/logos/ongc.jpg";
-// import ntpc from "@/assets/logos/ntpc.jpg";
-
-/* -------------------------------------------
-   🔥 NEW IMPORTS
-   (Make sure you add logo files in /assets/logos)
+   🔥 ALL LOGO IMPORTS (OLD + NEW)
 ------------------------------------------- */
 
+// OLD IMPORTS
+import deloitte from "@/assets/logos/deloitte.jpg";
+import siemens from "@/assets/logos/siemens.jpg";
+import infosys from "@/assets/logos/infosys.jpg";
+import lnt from "@/assets/logos/lnt.jpg";
+import vedanta from "@/assets/logos/vedanta.jpg";
+import adobe from "@/assets/logos/adobe.jpg";
+import cognizant from "@/assets/logos/cognizant.jpg";
+import barclays from "@/assets/logos/barclays.jpg";
+import jpmorgan from "@/assets/logos/jpmorgan.jpg";
+import texas from "@/assets/logos/texas.jpg";
+import coalIndia from "@/assets/logos/coalindia.jpg";
+import ongc from "@/assets/logos/ongc.jpg";
+import ntpc from "@/assets/logos/ntpc.jpg";
+
+// NEW IMPORTS
 import dassault from "@/assets/logos/dassaultSystemes.jpg";
+import samsung from "@/assets/logos/samsung.jpg";
 import deshaw from "@/assets/logos/deShaw.jpg";
 import fanatics from "@/assets/logos/fanatics.jpg";
 import jsl from "@/assets/logos/jsl.jpg";
@@ -49,63 +46,64 @@ import oracle from "@/assets/logos/oracle.jpg";
 import cloudera from "@/assets/logos/cloudera.jpg";
 import swiggy from "@/assets/logos/swiggy.jpg";
 import ge from "@/assets/logos/ge-healthcare.jpg";
+import amazon from "@/assets/logos/amazon.jpg";
 
 /* -------------------------------------------
-   OLD RECRUITERS LIST - COMMENTED OUT
+   ✨ COMPLETE RECRUITERS DATA
 ------------------------------------------- */
-/*
+
 const recruiters = [
-  { name: "Tata", logo: tata },
-  { name: "Amazon", logo: amazon },
-  { name: "Samsung", logo: samsung },
-  { name: "Oracle", logo: oracle },
-  { name: "Deloitte", logo: deloitte },
-  { name: "Siemens", logo: siemens },
-  { name: "Wipro", logo: wipro },
-  { name: "Infosys", logo: infosys },
-  { name: "L&T", logo: lnt },
-  { name: "Vedanta", logo: vedanta },
-  { name: "Reliance", logo: reliance },
-  { name: "Adobe", logo: adobe },
-  { name: "Cognizant", logo: cognizant },
-  { name: "Barclays", logo: barclays },
-  { name: "JP Morgan", logo: jpmorgan },
-  { name: "Texas Instruments", logo: texas },
   { name: "Coal India", logo: coalIndia },
   { name: "ONGC", logo: ongc },
   { name: "NTPC", logo: ntpc },
-];
-*/
-
-/* -------------------------------------------
-   ✨ NEW RECRUITERS DATA
-------------------------------------------- */
-
-const recruiters = [
-  { name: "Accenture", logo: accenture },
-  { name: "BlackRock", logo: blackrock },
-  { name: "Cisco", logo: cisco },
-  { name: "Cloudera", logo: cloudera },
-  { name: "Dassault Systemes", logo: dassault },
-  { name: "DE Shaw", logo: deshaw },
-  { name: "Fanatics", logo: fanatics },
-  { name: "GE Healthcare", logo: ge },
-  { name: "ICICI", logo: icici },
+  { name: "L&T", logo: lnt },
+  { name: "Vedanta", logo: vedanta },
+  { name: "Siemens", logo: siemens },
+  { name: "Tata", logo: tata },
+  { name: "Reliance Industries", logo: ril },
   { name: "Jindal", logo: jindal },
   { name: "JSL", logo: jsl },
-  { name: "Mathworks", logo: mathworks },
-  { name: "Optum", logo: optum },
-  { name: "Oracle", logo: oracle },
-  { name: "PhonePe", logo: phonepe },
-  { name: "Reliance Industries", logo: ril },
-  { name: "Sixt", logo: sixt },
-  { name: "Swiggy", logo: swiggy },
-  { name: "Tata", logo: tata },
-  { name: "TCS", logo: tcs },
-  { name: "Visa", logo: visa },
+
+  { name: "Accenture", logo: accenture },
+  { name: "Deloitte", logo: deloitte },
+  { name: "Infosys", logo: infosys },
   { name: "Wipro", logo: wipro },
-  { name: "ZS Associates", logo: zs },  
+  { name: "TCS", logo: tcs },
+  { name: "Cognizant", logo: cognizant },
+  { name: "ZS Associates", logo: zs },
+
+  { name: "Amazon", logo: amazon },
+  { name: "Samsung", logo: samsung },
+  { name: "Oracle", logo: oracle },
+  { name: "Cisco", logo: cisco },
+  { name: "Adobe", logo: adobe },
+  { name: "MathWorks", logo: mathworks },
+  { name: "Cloudera", logo: cloudera },
+  { name: "Dassault Systemes", logo: dassault },
+  { name: "Texas Instruments", logo: texas },
+
+  { name: "BlackRock", logo: blackrock },
+  { name: "JP Morgan", logo: jpmorgan },
+  { name: "Barclays", logo: barclays },
+  { name: "ICICI", logo: icici },
+  { name: "Visa", logo: visa },
+  { name: "DE Shaw", logo: deshaw },
+
+  { name: "GE Healthcare", logo: ge },
+  { name: "Optum", logo: optum },
+  { name: "PhonePe", logo: phonepe },
+  { name: "Swiggy", logo: swiggy },
+  { name: "Fanatics", logo: fanatics },
+  { name: "Sixt", logo: sixt },
 ];
+
+/* -------------------------------------------
+   🔠 ALPHABETICAL SORT (A → Z)
+------------------------------------------- */
+
+const sortedRecruiters = [...recruiters].sort((a, b) =>
+  a.name.localeCompare(b.name)
+);
 
 /* -------------------------------------------
    ⚙️ COMPONENT
@@ -143,7 +141,7 @@ export const RecruitersSection = () => {
         <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-background to-transparent z-10" />
 
         <div className="flex whitespace-nowrap animate-marquee hover:[animation-play-state:paused]">
-          {[...recruiters, ...recruiters].map((company, index) => (
+          {[...sortedRecruiters, ...sortedRecruiters].map((company, index) => (
             <div
               key={index}
               className="

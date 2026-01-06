@@ -10,7 +10,7 @@ import mayurImg from "../data/developers/mayur_nanwani.jpg";
 import shouryaImg from "../data/developers/shourya_sinha.jpg"; 
 import ashutoshImg from "../data/developers/ashutosh_behera.jpeg"; 
 import dineshImg from "../data/developers/ronanki_dinesh.jpeg"; 
-import vaibhaviImg from "../data/developers/vaibhavi.jpeg"; 
+import vaibhaviImg from "../data/developers/vaibhavi.jpg"; 
 
 
 gsap.registerPlugin(ScrollTrigger);

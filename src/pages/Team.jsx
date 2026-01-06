@@ -60,28 +60,29 @@ const TeamCard = ({ member, index }) => {
 
     const isMobile = window.innerWidth < 1024;
 
-    gsap.fromTo(
-      card,
-      {
-        opacity: 0,
-        y: isMobile ? 0 : 40,
-        x: isMobile ? 40 : 0,
-        scale: 0.95,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        x: 0,
-        scale: 1,
-        duration: 0.45,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: card,
-          start: "top bottom-=80",
-        },
-        delay: index * 0.03,
-      }
-    );
+gsap.fromTo(
+  card,
+  {
+    opacity: 0,
+    y: isMobile ? 0 : 40,
+    x: isMobile ? 40 : 0,
+    scale: 0.95,
+  },
+  {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    scale: 1,
+    duration: 0.45,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: card,
+      start: "top bottom-=80",
+      once: true,   // 🔥 prevents reloading
+    },
+  }
+);
+
   }, [index]);
 
   return (

@@ -1,4 +1,4 @@
-import { Layout } from "@/components/layout/Layout.jsx"; // <-- Updated
+import { Layout } from "@/components/layout/Layout.jsx";
 import { motion } from "framer-motion";
 import { 
   GraduationCap, 
@@ -6,199 +6,188 @@ import {
   Building2, 
   Award, 
   MapPin, 
-  Wifi, 
-  Monitor, 
-  Presentation, 
-  Home, 
-  HeadphonesIcon,
+  CheckCircle2,
   FileText,
   Download,
-  CheckCircle2
+  Search,
+  ClipboardCheck,
+  Send,
+  Globe,
+  Eye,
+  UserCheck,
+  Trophy
 } from "lucide-react";
-import { Button } from "@/components/ui/button.jsx"; // <-- Updated
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card.jsx"; // <-- Updated
+import { Button } from "@/components/ui/button.jsx";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card.jsx";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion.jsx"; // <-- Updated
+} from "@/components/ui/accordion.jsx";
 
 import CCCImg from "@/assets/facilities/ccc.jpeg";
 import LibraryImg from "@/assets/facilities/central-library.jpeg";
-import GardenImg from "@/assets/facilities/cg.jpeg";
+import GardenImg from "../assets/facilities/Central-garden.jpg";
 import LabImg from "@/assets/facilities/computer-lab.jpeg";
 import GuestHouseImg from "@/assets/facilities/guest-house.jpeg";
 import GDRoomImg from "@/assets/facilities/interview-panel.jpeg";
 import PPTHallImg from "@/assets/facilities/ppt-hall.jpeg";
 
+
+//docs
+import PlacementBrochure from "@/assets/docs/placement_brochure_2026.pdf";
+import PlacementPolicy from "@/assets/docs/placement_policy_2025-26.pdf";
+import InternshipPolicy from "@/assets/docs/Internship_Policy_2025-26.pdf";
+import JobResponseForm from "@/assets/docs/job_response_form.pdf";
+import InternshipResponseForm from "@/assets/docs/Internship_response_form.pdf";
+
 const whyRecruitReasons = [
   {
-    icon: GraduationCap,
-    title: "Academic Excellence",
-    description: "Students with strong fundamentals in engineering and technology, trained by experienced faculty with industry and research expertise."
+    icon: Award,
+    title: "Institute of National Importance",
+    description: "Ranked among the top engineering institutions in India, producing graduates with rigorous technical training and analytical skills."
   },
   {
-    icon: Users,
-    title: "Diverse Talent Pool",
-    description: "Access to talented students from 11 undergraduate and 20+ postgraduate programs across various engineering and science disciplines."
+    icon: GraduationCap,
+    title: "Diverse Specializations",
+    description: "A wide talent pool from 11 B.Tech branches and 20+ PG programs including specialized fields like Mining, Metallurgy, and Biomedical Engineering."
   },
   {
     icon: Building2,
-    title: "Industry-Ready Graduates",
-    description: "Our curriculum is designed with industry inputs, ensuring graduates are equipped with practical skills and modern technologies."
+    title: "Industry-Aligned Curriculum",
+    description: "Coursework is regularly updated with industry inputs, ensuring students are proficient in modern tools, AI/ML, and core engineering fundamentals."
   },
   {
-    icon: Award,
-    title: "60+ Years of Excellence",
-    description: "Established in 1956, NIT Raipur has a rich legacy of producing successful engineers who are leaders in their respective fields."
+    icon: Users,
+    title: "Holistic Development",
+    description: "Our students manage 20+ technical and cultural clubs, fostering leadership, teamwork, and soft skills essential for corporate roles."
+  },
+  {
+    icon: Trophy,
+    title: "Legacy of Excellence",
+    description: "Over 60 years of heritage with a strong alumni network of 25,000+ professionals leading global Fortune 500 companies."
   },
   {
     icon: MapPin,
-    title: "Strategic Location",
-    description: "Located in Raipur, the capital of Chhattisgarh, with excellent air, rail, and road connectivity for easy access."
-  },
-  {
-    icon: CheckCircle2,
-    title: "Proven Track Record",
-    description: "Consistent placement record with 150+ recruiters visiting campus annually, including Fortune 500 companies."
+    title: "Excellent Logistics",
+    description: "Raipur is well-connected by air and rail. The TPO provides seamless on-campus hospitality and state-of-the-art recruitment infrastructure."
   }
 ];
 
 const placementSteps = [
   {
     step: 1,
-    title: "Invitation & Registration",
-    description: "Formal invitation sent to companies. Companies confirm participation and register on the TPO portal."
+    icon: Search,
+    title: "Company Registration",
+    description: "Companies click on the placement/internship drive invitation link to register their organization on the portal."
   },
   {
     step: 2,
-    title: "Job Notification Form (JNF)",
-    description: "Companies submit JNF with job description, eligibility criteria, salary package, and selection process details."
+    icon: ClipboardCheck,
+    title: "Creating a Job",
+    description: "Choose job type (Full-Time, B.Tech/M.Tech Internship). Fill details in the Job Announcement Form (JAF) or Internship Release Form (IRF)."
   },
   {
     step: 3,
-    title: "Pre-Placement Talk (Optional)",
-    description: "Companies conduct PPT sessions to provide insights about the organization, work culture, and opportunities."
+    icon: Send,
+    title: "Post Job to Institute",
+    description: "The created job profile is sent to the Placement Officer who reviews and verifies the JAF/IRF requirements."
   },
   {
     step: 4,
-    title: "Resume Shortlisting",
-    description: "Access to interested students' resumes is provided. Companies shortlist candidates based on their criteria."
+    icon: Globe,
+    title: "Publishing JAF/IRF",
+    description: "After verification, the JAF/IRF is published online to eligible students along with all company-provided details."
   },
   {
     step: 5,
-    title: "Online Assessment",
-    description: "Conduct aptitude tests, coding challenges, or technical assessments using our computer center facilities."
+    icon: Eye,
+    title: "Viewing Jobs & Applicants",
+    description: "Interested students apply. The list of eligible candidates and their resumes are made available via the recruiter's account."
   },
   {
     step: 6,
-    title: "Interviews & Selection",
-    description: "Technical and HR interviews conducted on campus. Final list of selected candidates submitted to TPO."
+    icon: UserCheck,
+    title: "Conducting the Interview",
+    description: "Recruiters shortlist students and conduct tests/interviews through online or offline modes as per convenience."
   },
   {
     step: 7,
-    title: "Offer Rollout",
-    description: "Selected students receive offer letters. TPO coordinates with company and students for joining formalities."
+    icon: CheckCircle2,
+    title: "Declaring the Results",
+    description: "Final selections and waitlists are provided to the Placement Officer. A placement representative assists throughout the process."
   }
 ];
-
-// const facilities = [
-//   {
-//     icon: Monitor,
-//     title: "Central Computer Centre",
-//     description: "State-of-the-art facility for online tests with 250+ computer systems at one place."
-//   },
-//   {
-//     icon: Presentation,
-//     title: "Auditorium & Seminar Halls",
-//     description: "Well-equipped and spacious auditorium for pre-placement talks and company presentations."
-//   },
-//   {
-//     icon: Wifi,
-//     title: "Video Conferencing",
-//     description: "Advanced video conferencing facility for remote interviews and virtual recruitment drives."
-//   },
-//   {
-//     icon: Users,
-//     title: "GD & PI Rooms",
-//     description: "Well-equipped rooms specifically designed for group discussions and personal interviews."
-//   },
-//   {
-//     icon: Home,
-//     title: "Guest House",
-//     description: "Comfortable accommodation facilities for recruiting team members during campus visits."
-//   },
-//   {
-//     icon: HeadphonesIcon,
-//     title: "Dedicated Support",
-//     description: "Fully computerized and air-conditioned TPO office with dedicated placement coordinators."
-//   }
-// ];
 
 const faqs = [
   {
-    question: "What programs are available for recruitment at NIT Raipur?",
-    answer: "NIT Raipur offers 11 undergraduate B.Tech programs, 20+ M.Tech programs, MCA, MBA, M.Sc, and Ph.D programs. Companies can recruit from any of these programs based on their requirements."
+    question: "What are the job categories and the 'One Student One Job' policy?",
+    answer: "NIT Raipur follows a 'One Student One Job' policy. However, jobs are categorized into A1, A2, and Dream. If a student is placed in a lower category, they may be eligible to sit for a 'Dream' company or a higher category company as per TPO guidelines."
   },
   {
-    question: "When does the placement season begin?",
-    answer: "The placement season typically begins in July-August for full-time positions and December-January for internships. Companies can register throughout the year for recruitment."
+    question: "What are JAF and IRF?",
+    answer: "JAF (Job Announcement Form) is for Full-Time recruitment, while IRF (Internship Release Form) is for Summer or Semester-long internships. These forms capture details like CTC, job description, and eligibility."
   },
   {
-    question: "What is the process for virtual/online recruitment?",
-    answer: "We provide complete support for virtual recruitment including video conferencing facilities, proctored online assessments, and coordination for remote interviews. Our technical team ensures smooth conduct of online drives."
+    question: "How are the interview slots assigned?",
+    answer: "Slots are assigned based on the company's rank, CTC offered, historical relationship with the institute, and student preferences. The TPO office coordinates with recruiters for mutually convenient dates."
   },
   {
-    question: "How can we schedule a campus visit?",
-    answer: "Companies can contact the TPO office via email at tpo@nitrr.ac.in or call +91-7400730333 to schedule a campus visit. We provide complete hospitality support including accommodation and local transport."
+    question: "What is the policy for Summer Internships?",
+    answer: "The internship season starts alongside the placement season. Students are eligible for 2-month summer internships (May-July) or 6-month semester internships (Final Year) depending on department permissions."
   },
   {
-    question: "What is the minimum CTC for registration?",
-    answer: "There is no strict minimum CTC requirement. However, companies are encouraged to offer competitive packages aligned with industry standards for NITs."
+    question: "Does the institute provide infrastructure for online testing?",
+    answer: "Yes, the Central Computer Centre (CCC) can accommodate over 250 students simultaneously for proctored online assessments with high-speed internet connectivity."
   },
   {
-    question: "Can we conduct Pre-Placement Offers (PPO)?",
-    answer: "Yes, companies that have provided internships to our students can extend PPOs. The process is coordinated through the TPO office with proper documentation."
+    question: "What is the procedure for extending a PPO?",
+    answer: "Companies must inform the TPO office regarding Pre-Placement Offers (PPO) made to interns before the placement season begins. PPOs are counted as the student's primary job offer under the placement policy."
   }
 ];
-
-const documents = [
-  {
-    title: "Placement Brochure 2024-25",
-    description: "Comprehensive guide about NIT Raipur, programs, and placement statistics",
-    type: "PDF",
-    link: "https://tpo.nitrr.ac.in/"
-  },
-  {
-    title: "Job Notification Form (JNF)",
-    description: "Form for companies to submit job details and requirements",
-    type: "DOC",
-    link: "https://tpo.nitrr.ac.in/"
-  },
-  {
-    title: "Placement Policy",
-    description: "Official placement policies and guidelines for recruiters",
-    type: "PDF",
-    link: "https://tpo.nitrr.ac.in/"
-  },
-  {
-    title: "Internship Notification Form (INF)",
-    description: "Form for companies offering internship opportunities",
-    type: "DOC",
-    link: "https://tpo.nitrr.ac.in/"
-  }
-];
-
 
 const facilities = [
   { title: "Central Computer Centre", description: "High-end computing facilities for online tests.", image: CCCImg },
   { title: "Central Library", description: "Resource-rich environment for students.", image: LibraryImg },
   { title: "Central Garden", description: "Serene environment within the campus.", image: GardenImg },
   { title: "Computer Lab", description: "Specialized labs for technical assessments.", image: LabImg },
-  { title: "Guest House", description: "Comfortable stay for visiting recruiters.", image: GuestHouseImg },
+  { title: "Guest Rooms", description: "Comfortable stay for visiting recruiters.", image: GuestHouseImg },
   { title: "GD & PI Rooms", description: "Dedicated spaces for interviews and discussions.", image: GDRoomImg },
-  { title: "PPT Hall", description: "State-of-the-art Auditorium & Seminar Halls.", image: PPTHallImg },
+  { title: "Online Presentation and Seminar Hall", description: "State-of-the-art Auditorium & Seminar Halls.", image: PPTHallImg },
+];
+
+const documents = [
+  {
+    title: "Placement Brochure 2026",
+    description: "Comprehensive guide featuring department overviews, student demographics, and past recruitment statistics.",
+    type: "PDF",
+    link: PlacementBrochure
+  },
+  {
+    title: "Placement Policy 2025-26",
+    description: "Official recruitment guidelines covering job categories (A1, A2, Dream) and student eligibility rules.",
+    type: "PDF",
+    link: PlacementPolicy
+  },
+  {
+    title: "Internship Policy 2025-26",
+    description: "Guidelines for summer and semester-long internships, including PPO conversion rules.",
+    type: "PDF",
+    link: InternshipPolicy
+  },
+  {
+    title: "Job Announcement Form (JAF)",
+    description: "Standard response form for recruiters to provide full-time job details and salary breakdowns.",
+    type: "PDF",
+    link: JobResponseForm
+  },
+  {
+    title: "Internship Response Form (IRF)",
+    description: "Standard response form for organizations offering internship opportunities to students.",
+    type: "PDF",
+    link: InternshipResponseForm
+  }
 ];
 
 const ForRecruiters = () => {
@@ -213,11 +202,11 @@ const ForRecruiters = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-              Partner with NIT Raipur
+              Empower Your Team with NIT Raipur Talent
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Join 150+ leading companies that recruit top engineering talent from NIT Raipur. 
-              Our students are industry-ready professionals equipped with strong technical skills and innovative mindset.
+              Partner with one of India's premier technical institutions. Our recruitment process is 
+              streamlined, transparent, and designed to connect you with industry-ready professionals.
             </p>
           </motion.div>
         </div>
@@ -236,7 +225,7 @@ const ForRecruiters = () => {
               Why Recruit from NIT Raipur?
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Discover what makes NIT Raipur graduates stand out from the crowd
+              Our graduates are defined by technical prowess, resilience, and a drive for innovation.
             </p>
           </motion.div>
 
@@ -278,16 +267,15 @@ const ForRecruiters = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Placement Procedure
+              Step-by-Step Placement Process
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              A streamlined recruitment process designed for your convenience
+              A digitized and efficient workflow for campus recruitment
             </p>
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
             <div className="relative">
-              {/* Timeline Line */}
               <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/30 transform md:-translate-x-1/2" />
 
               {placementSteps.map((step, index) => (
@@ -301,16 +289,17 @@ const ForRecruiters = () => {
                     index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
                 >
-                  {/* Step Number */}
                   <div className="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-elegant z-10">
                     {step.step}
                   </div>
 
-                  {/* Content Card */}
                   <div className={`ml-20 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
                     <Card className="bg-card border-border hover:shadow-lg transition-shadow">
                       <CardContent className="p-6">
-                        <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
+                        <div className="flex items-center gap-3 mb-2">
+                            <step.icon className="w-5 h-5 text-primary" />
+                            <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
+                        </div>
                         <p className="text-muted-foreground text-sm">{step.description}</p>
                       </CardContent>
                     </Card>
@@ -323,63 +312,55 @@ const ForRecruiters = () => {
       </section>
 
       {/* Facilities Section */}
-
-      
       <section className="py-16 bg-background">
-  <div className="container mx-auto px-4 lg:px-8">
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="text-center mb-12"
-    >
-      <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-        Facilities Offered
-      </h2>
-      <p className="text-muted-foreground max-w-2xl mx-auto">
-        World-class infrastructure for a seamless recruitment experience
-      </p>
-    </motion.div>
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Recruitment Infrastructure
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Equipped with modern technology to support both physical and virtual drives
+            </p>
+          </motion.div>
 
-    {/* Grid: 1 col on mobile, 3 cols on desktop, centered */}
-    {/* Grid: 1 col on mobile, 2 on tablet, 3 on desktop */}
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-  {facilities.map((facility, index) => (
-    <motion.div
-      key={index}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      className={`
-        group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer shadow-lg
-        ${index === 6 ? "lg:col-start-2" : ""} 
-      `}
-      /* The line above checks if it is the 7th item (index 6) and centers it on desktop */
-    >
-      {/* Background Image */}
-      <img
-        src={facility.image}
-        alt={facility.title}
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-      />
-
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-        <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-          <h3 className="text-xl font-bold text-white mb-2">
-            {facility.title}
-          </h3>
-          <p className="text-gray-200 text-sm leading-relaxed">
-            {facility.description}
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {facilities.map((facility, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className={`
+                  group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer shadow-lg
+                  ${index === 6 ? "lg:col-start-2" : ""} 
+                `}
+              >
+                <img
+                  src={facility.image}
+                  alt={facility.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {facility.title}
+                    </h3>
+                    <p className="text-gray-200 text-sm leading-relaxed">
+                      {facility.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </motion.div>
-  ))}
-</div>
-  </div>
-</section>
+      </section>
 
       {/* FAQs Section */}
       <section className="py-16 bg-secondary/30">
@@ -391,10 +372,10 @@ const ForRecruiters = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Frequently Asked Questions
+              Placement Policy & FAQs
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Get answers to common queries about recruiting from NIT Raipur
+              Essential information regarding recruitment regulations and logistics
             </p>
           </motion.div>
 
@@ -415,7 +396,7 @@ const ForRecruiters = () => {
                     <AccordionTrigger className="text-left text-foreground hover:no-underline py-4">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground pb-4">
+                    <AccordionContent className="text-muted-foreground pb-4 leading-relaxed">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -428,64 +409,55 @@ const ForRecruiters = () => {
 
       {/* Documents Section */}
       <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Important Documents
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Download essential documents and forms for the recruitment process
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {documents.map((doc, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Card className="bg-card border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                        <FileText className="w-6 h-6 text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <h3 className="text-lg font-semibold text-foreground">{doc.title}</h3>
-                          <span className="text-xs px-2 py-0.5 rounded bg-primary/10 text-primary font-medium">
-                            {doc.type}
-                          </span>
-                        </div>
-                        <p className="text-muted-foreground text-sm mb-4">{doc.description}</p>
-                        <Button 
-                          variant="outline" 
-                          size="sm" 
-                          className="gap-2"
-                          asChild
-                        >
-                          <a href={doc.link} target="_blank" rel="noopener noreferrer">
-                            <Download className="w-4 h-4" />
-                            Download
-                          </a>
-                        </Button>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+  <div className="container mx-auto px-4 lg:px-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      {documents.map((doc, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className={`
+            ${documents.length % 2 !== 0 && index === documents.length - 1 
+              ? "md:col-span-2 md:w-1/2 md:mx-auto" 
+              : "w-full"}
+          `}
+        >
+          <Card className="bg-card border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300 h-full">
+            <CardContent className="p-6 h-full flex flex-col">
+              <div className="flex items-start gap-4 h-full">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                  <FileText className="w-6 h-6 text-primary" />
+                </div>
+                <div className="flex-1 flex flex-col h-full">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <h3 className="text-lg font-semibold text-foreground leading-tight">
+                      {doc.title}
+                    </h3>
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-primary/10 text-primary font-bold uppercase shrink-0">
+                      {doc.type}
+                    </span>
+                  </div>
+                  <p className="text-muted-foreground text-sm mb-6 flex-grow">
+                    {doc.description}
+                  </p>
+                  <div className="mt-auto">
+                    <Button variant="outline" size="sm" className="gap-2 w-full sm:w-auto" asChild>
+                      <a href={doc.link} download={`${doc.title}.pdf`} target="_blank" rel="noopener noreferrer">
+                        <Download className="w-4 h-4" /> Download
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* CTA Section */}
       <section className="py-16 bg-primary">
@@ -497,26 +469,16 @@ const ForRecruiters = () => {
             className="text-center max-w-3xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-              Ready to Recruit from NIT Raipur?
+              Start Your Recruitment Journey
             </h2>
             <p className="text-primary-foreground/80 mb-8">
-              Join our network of leading recruiters and get access to exceptional engineering talent. 
-              Contact us to begin your recruitment journey.
+              Reach out to our Training & Placement Office to schedule your visit or virtual drive.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="bg-sky hover:bg-sky/90 text-primary font-semibold"
-                asChild
-              >
-                <a href="mailto:tpo@nitrr.ac.in">Contact TPO Office</a>
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold" asChild>
+                <a href="mailto:tpo@nitrr.ac.in">Email TPO Office</a>
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-                asChild
-              >
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
                 <a href="tel:+917400730333">+91-7400730333</a>
               </Button>
             </div>

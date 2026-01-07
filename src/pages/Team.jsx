@@ -144,9 +144,17 @@ const Team = () => {
   const [activeTab, setActiveTab] = useState("current");
   const [currentFilter, setCurrentFilter] = useState("all");
   const [selectedBranch, setSelectedBranch] = useState("All");
+// Architecture should always be last
+const sortByBranchThenName = (a, b) => {
+  const arch = "Architecture";
 
-  const sortByBranchThenName = (a, b) =>
-    a.branch.localeCompare(b.branch) || a.name.localeCompare(b.name);
+  if (a.branch === arch && b.branch !== arch) return 1;
+  if (a.branch !== arch && b.branch === arch) return -1;
+
+  // normal alphabetical sorting for others
+  return a.branch.localeCompare(b.branch) || a.name.localeCompare(b.name);
+};
+
 
   const getCurrentData = () => {
     let data = [];

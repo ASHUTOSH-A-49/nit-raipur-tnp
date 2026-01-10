@@ -14,7 +14,6 @@ const resourceLinks = [
   { name: "NIT Raipur Main Site", href: "https://www.nitrr.ac.in" },
   { name: "Career Development Centre (CDC)", href: "https://cdc.nitrr.ac.in/" },
   { name: "NITRRFIE", href: "https://nitrrfie.in/" },
-  { name: "Our Policies & Procedures", href: "https://tpo.nitrr.ac.in/policy.html" },
 ];
 
 const socialLinks = [

@@ -73,7 +73,7 @@ export const pastConveners = {
     { name: "Shruti Chauhan", branch: "ELECTRONICS & COMMUNICATION", contact: "9993223892" },
     { name: "Aadarsh Mishra", branch: "INFORMATION TECHNOLOGY", contact: "9770943003" },
     { name: "Harsh Nahar", branch: "INFORMATION TECHNOLOGY", contact: "9723553748" },
-    { name: "Viraj Chandrar", branch: "INFORMATION TECHNOLOGY", contact: "9129916977" },
+    { name: "Viraj Chandra", branch: "INFORMATION TECHNOLOGY", contact: "9129916977" },
     { name: "Ankit Dubey", branch: "MCA", contact: "7879432133" },
     { name: "Utsab Samadder", branch: "MCA", contact: "7044391371" },
     { name: "Arikathota Karthik", branch: "MECHANICAL", contact: "7000902784" },

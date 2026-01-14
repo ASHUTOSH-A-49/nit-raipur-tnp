@@ -337,54 +337,142 @@ const Placements = () => {
           {/* ================= DOWNLOAD PLACEMENT DOCUMENTS ================= */}
 <section className="mt-10">
   <div className="container mx-auto px-4 lg:px-8 text-center">
-    <h2 className="text-2xl font-bold mb-6">
-      Download Placement Statistics (Year-wise)
+    <h2 className="text-2xl font-bold mb-4">
+      Download Placement Reports (Year-wise)
     </h2>
 
-    <p className="text-muted-foreground mb-8">
-      Official placement statistics documents for previous academic years.
+    <p className="text-muted-foreground mb-10">
+      Official placement statistics and company-wise reports for previous academic years.
     </p>
 
-    <div className="flex flex-wrap justify-center gap-4">
-      <a
-        href="/Placement_Doc/senate_report_2024.pdf"
-        download
-        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
-      >
-        Placement Stats 2024-2025
-      </a>
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 place-items-center">
+      
+      {/* 2024–25 */}
+      <div className="w-full max-w-sm border rounded-xl p-6 shadow-sm bg-background">
+        <h3 className="text-lg font-semibold mb-4">
+          Academic Year 2024–2025
+        </h3>
 
-      <a
-        href="/Placement_Doc/senate_report_2023.pdf"
-        download
-        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
-      >
-        Placement Stats 2023-2024
-      </a>
+        <div className="flex flex-col gap-3">
+          <a
+            href="/Placement_Doc/senate_report_2024.pdf"
+            download
+            className="px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
+          >
+            Placement Statistics
+          </a>
 
-      <a
-        href="/Placement_Doc/senate_report_2022.pdf"
-        download
-        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
-      >
-        Placement Stats 2022-2023
-      </a>
+          <a
+            href="/Placement_Doc/placement_report_2024.pdf"
+            download
+            className="px-5 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition"
+          >
+            Company-Wise Placements
+          </a>
+        </div>
+      </div>
 
-      <a
-        href="/Placement_Doc/senate_report_2021.pdf"
-        download
-        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
-      >
-        Placement Stats 2021-2022
-      </a>
+      {/* 2023–24 */}
+      <div className="w-full max-w-sm border rounded-xl p-6 shadow-sm bg-background">
+        <h3 className="text-lg font-semibold mb-4">
+          Academic Year 2023–2024
+        </h3>
 
-      <a
-        href="/Placement_Doc/senate_report_2020.pdf"
-        download
-        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
-      >
-        Placement Stats 2020-2021
-      </a>
+        <div className="flex flex-col gap-3">
+          <a
+            href="/Placement_Doc/senate_report_2023.pdf"
+            download
+            className="px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
+          >
+            Placement Statistics
+          </a>
+
+          <a
+            href="/Placement_Doc/placement_report_2023.pdf"
+            download
+            className="px-5 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition"
+          >
+            Company-Wise Placements
+          </a>
+        </div>
+      </div>
+
+      {/* 2022–23 */}
+      <div className="w-full max-w-sm border rounded-xl p-6 shadow-sm bg-background">
+        <h3 className="text-lg font-semibold mb-4">
+          Academic Year 2022–2023
+        </h3>
+
+        <div className="flex flex-col gap-3">
+          <a
+            href="/Placement_Doc/senate_report_2022.pdf"
+            download
+            className="px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
+          >
+            Placement Statistics
+          </a>
+
+          <a
+            href="/Placement_Doc/placement_report_2022.pdf"
+            download
+            className="px-5 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition"
+          >
+            Company-Wise Placements
+          </a>
+        </div>
+      </div>
+
+      {/* 2021–22 */}
+      <div className="w-full max-w-sm border rounded-xl p-6 shadow-sm bg-background">
+        <h3 className="text-lg font-semibold mb-4">
+          Academic Year 2021–2022
+        </h3>
+
+        <div className="flex flex-col gap-3">
+          <a
+            href="/Placement_Doc/senate_report_2022.pdf"
+            download
+            className="px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
+          >
+            Placement Statistics
+          </a>
+
+          <a
+            href="/Placement_Doc/placement_report_2021.pdf"
+            download
+            className="px-5 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition"
+          >
+            Company-Wise Placements
+          </a>
+        </div>
+      </div>
+
+      {/* 2020–21 */}
+      <div className="w-full max-w-sm border rounded-xl p-6 shadow-sm bg-background">
+        <h3 className="text-lg font-semibold mb-4">
+          Academic Year 2020–2021
+        </h3>
+
+        <div className="flex flex-col gap-3">
+          <a
+            href="/Placement_Doc/senate_report_2022.pdf"
+            download
+            className="px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
+          >
+            Placement Statistics
+          </a>
+
+          <a
+            href="/Placement_Doc/placement_report_2020.pdf"
+            download
+            className="px-5 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition"
+          >
+            Company-Wise Placements
+          </a>
+        </div>
+      </div>
+
+
     </div>
   </div>
 </section>

@@ -37,6 +37,8 @@ const placementData = {
   { name: "MIN", highest: 16.5, average: 10.77, median: 10, placed: 46, percentage: 54.7 },
   { name: "BME", highest: 15, average: 11.37, median: 10.5, placed: 6, percentage: 20 },
   { name: "BT",  highest: 13.6, average: 10.56, median: 10.8, placed: 4, percentage: 10 },
+  { name: "Arch",  highest: 13.6, average: 10.56, median: 10.8, placed: 4, percentage: 10 },
+  { name: "MCA",  highest: 13.6, average: 10.56, median: 10.8, placed: 4, percentage: 10 },
 ],
 
     sectorWise: [
@@ -67,6 +69,8 @@ const placementData = {
       { name: "MIN", highest: 16.5, average: 10.77, median: 10, placed: 23, percentage: 27.4},
       { name: "BME", highest: 15, average: 11.37, median: 10.5, placed: 6, percentage: 14 },
       { name: "BT",  highest: 13.6, average: 10.56, median: 10.8, placed: 4, percentage: 9 },
+      { name: "Arch",  highest: 13.6, average: 10.56, median: 10.8, placed: 4, percentage: 9 },
+      { name: "MCA",  highest: 13.6, average: 10.56, median: 10.8, placed: 4, percentage: 9 },
     ],
     sectorWise: [
       { name: "IT/Software", value: 48 },
@@ -96,6 +100,8 @@ const placementData = {
       { name: "MIN", highest: 13, average: 6.5, median: 5.4, placed: 60, percentage: 71.42 },
       { name: "BME", highest: 10, average: 5.6, median: 4.5, placed: 28, percentage: 48.2 },
       { name: "BT",  highest: 11, average: 5.9, median: 4.8, placed: 17, percentage: 34.7 },
+      { name: "Arch",  highest: 11, average: 5.9, median: 4.8, placed: 17, percentage: 34.7 },
+      { name: "MCA",  highest: 11, average: 5.9, median: 4.8, placed: 17, percentage: 34.7 },
     ],
     sectorWise: [
       { name: "IT/Software", value: 50 },
@@ -128,7 +134,32 @@ const branchFullNameMap = {
   BME: "Biomedical ",
   BT: "Biotechnology",
   MIN: "Mining ",
+  MCA: "Master in Computer Applications",
+  Arch:"Architecture",
+
 };
+
+// ✅custom tooltip
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    const branchCode = payload[0].payload.name;
+    const fullName = branchFullNameMap[branchCode] || branchCode;
+
+    return (
+      // 👇 THIS div controls tooltip background
+      <div className="bg-white text-black border rounded-md p-3 shadow-lg">
+        <p className="font-semibold">
+          {fullName}
+        </p>
+        <p className="text-sm">
+          Placement Rate: {payload[0].value}%
+        </p>
+      </div>
+    );
+  }
+  return null;
+};
+
 
 
 const Placements = () => {
@@ -263,14 +294,23 @@ const Placements = () => {
             {/* Branch Chart */}
             <div className="bg-card p-6 rounded-2xl shadow-elegant">
               <h3 className="text-xl font-bold mb-6">Branch-wise Placement Rate</h3>
-              <ResponsiveContainer width="100%" height={350}>
+              <ResponsiveContainer width="100%" height={400}>
                 <BarChart data={currentData.branchWise} layout="vertical">
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis type="number" domain={[0, 100]} />
-                  <YAxis dataKey="name" type="category" />
-                  <Tooltip formatter={(v) => [`${v}%`, "Placement Rate"]} />
-                  <Bar dataKey="percentage" fill="hsl(var(--primary))" />
-                </BarChart>
+  <CartesianGrid strokeDasharray="3 3" />
+
+  <XAxis type="number" domain={[0, 100]} />
+
+  <YAxis
+    dataKey="name"
+    type="category"
+    interval={0}
+  />
+
+  <Tooltip content={<CustomTooltip />} />
+
+  <Bar dataKey="percentage" fill="hsl(var(--primary))" />
+</BarChart>
+
               </ResponsiveContainer>
             </div>
 
@@ -297,54 +337,142 @@ const Placements = () => {
           {/* ================= DOWNLOAD PLACEMENT DOCUMENTS ================= */}
 <section className="mt-10">
   <div className="container mx-auto px-4 lg:px-8 text-center">
-    <h2 className="text-2xl font-bold mb-6">
-      Download Placement Statistics (Year-wise)
+    <h2 className="text-2xl font-bold mb-4">
+      Download Placement Reports (Year-wise)
     </h2>
 
-    <p className="text-muted-foreground mb-8">
-      Official placement statistics documents for previous academic years.
+    <p className="text-muted-foreground mb-10">
+      Official placement statistics and company-wise reports for previous academic years.
     </p>
 
-    <div className="flex flex-wrap justify-center gap-4">
-      <a
-        href="/Placement_Doc/senate_report_2024.pdf"
-        download
-        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
-      >
-        Placement Stats 2024-2025
-      </a>
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 place-items-center">
+      
+      {/* 2024–25 */}
+      <div className="w-full max-w-sm border rounded-xl p-6 shadow-sm bg-background">
+        <h3 className="text-lg font-semibold mb-4">
+          Academic Year 2024–2025
+        </h3>
 
-      <a
-        href="/Placement_Doc/senate_report_2023.pdf"
-        download
-        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
-      >
-        Placement Stats 2023-2024
-      </a>
+        <div className="flex flex-col gap-3">
+          <a
+            href="/Placement_Doc/senate_report_2024.pdf"
+            download
+            className="px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
+          >
+            Placement Statistics
+          </a>
 
-      <a
-        href="/Placement_Doc/senate_report_2022.pdf"
-        download
-        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
-      >
-        Placement Stats 2022-2023
-      </a>
+          <a
+            href="/Placement_Doc/placement_report_2024.pdf"
+            download
+            className="px-5 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition"
+          >
+            Company-Wise Placements
+          </a>
+        </div>
+      </div>
 
-      <a
-        href="/Placement_Doc/senate_report_2021.pdf"
-        download
-        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
-      >
-        Placement Stats 2021-2022
-      </a>
+      {/* 2023–24 */}
+      <div className="w-full max-w-sm border rounded-xl p-6 shadow-sm bg-background">
+        <h3 className="text-lg font-semibold mb-4">
+          Academic Year 2023–2024
+        </h3>
 
-      <a
-        href="/Placement_Doc/senate_report_2020.pdf"
-        download
-        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
-      >
-        Placement Stats 2020-2021
-      </a>
+        <div className="flex flex-col gap-3">
+          <a
+            href="/Placement_Doc/senate_report_2023.pdf"
+            download
+            className="px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
+          >
+            Placement Statistics
+          </a>
+
+          <a
+            href="/Placement_Doc/placement_report_2023.pdf"
+            download
+            className="px-5 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition"
+          >
+            Company-Wise Placements
+          </a>
+        </div>
+      </div>
+
+      {/* 2022–23 */}
+      <div className="w-full max-w-sm border rounded-xl p-6 shadow-sm bg-background">
+        <h3 className="text-lg font-semibold mb-4">
+          Academic Year 2022–2023
+        </h3>
+
+        <div className="flex flex-col gap-3">
+          <a
+            href="/Placement_Doc/senate_report_2022.pdf"
+            download
+            className="px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
+          >
+            Placement Statistics
+          </a>
+
+          <a
+            href="/Placement_Doc/placement_report_2022.pdf"
+            download
+            className="px-5 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition"
+          >
+            Company-Wise Placements
+          </a>
+        </div>
+      </div>
+
+      {/* 2021–22 */}
+      <div className="w-full max-w-sm border rounded-xl p-6 shadow-sm bg-background">
+        <h3 className="text-lg font-semibold mb-4">
+          Academic Year 2021–2022
+        </h3>
+
+        <div className="flex flex-col gap-3">
+          <a
+            href="/Placement_Doc/senate_report_2022.pdf"
+            download
+            className="px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
+          >
+            Placement Statistics
+          </a>
+
+          <a
+            href="/Placement_Doc/placement_report_2021.pdf"
+            download
+            className="px-5 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition"
+          >
+            Company-Wise Placements
+          </a>
+        </div>
+      </div>
+
+      {/* 2020–21 */}
+      <div className="w-full max-w-sm border rounded-xl p-6 shadow-sm bg-background">
+        <h3 className="text-lg font-semibold mb-4">
+          Academic Year 2020–2021
+        </h3>
+
+        <div className="flex flex-col gap-3">
+          <a
+            href="/Placement_Doc/senate_report_2022.pdf"
+            download
+            className="px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
+          >
+            Placement Statistics
+          </a>
+
+          <a
+            href="/Placement_Doc/placement_report_2020.pdf"
+            download
+            className="px-5 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition"
+          >
+            Company-Wise Placements
+          </a>
+        </div>
+      </div>
+
+
     </div>
   </div>
 </section>

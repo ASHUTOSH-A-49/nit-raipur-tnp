@@ -4,33 +4,32 @@ import { Mail, Phone } from "lucide-react";
 import { Layout } from "../components/layout/Layout.jsx";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import teamBanner from "../assets/team.jpeg"; // <— add this
+import teamBanner from "../assets/team.jpeg";
 
 import {
   currentConveners,
   pastConveners,
 } from "../data/convenersData.js";
 
+import { facultyAdvisors } from "../data/facultyAdvisors.js";
+
 gsap.registerPlugin(ScrollTrigger);
 
 /* ================= IMAGE HELPER ================= */
 
-// Import ALL images from team2026 (Vite-safe)
 const teamImages = import.meta.glob(
   "../data/team_2026/**/*.{jpg,jpeg,png,JPG,JPEG,PNG}",
   { eager: true }
 );
 
-// Normalize string for comparison
 const normalize = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/\s+/g, " ")        // normalize spaces
-    .replace(/[_-]+/g, " ")      // _ or - → space
-    .replace(/[^a-z0-9 ]/g, ""); // remove special chars
+    .replace(/\s+/g, " ")
+    .replace(/[_-]+/g, " ")
+    .replace(/[^a-z0-9 ]/g, "");
 
-// Universal matcher
 const getConvenerImage = (name) => {
   const target = normalize(name);
 
@@ -44,10 +43,44 @@ const getConvenerImage = (name) => {
       return mod.default;
     }
   }
-
-  return null; // fallback handled in UI
+  return null;
 };
 
+/* ================= FACULTY CARD ================= */
+
+const FacultyCard = ({ advisor }) => {
+  return (
+    <div className="h-[380px]">
+      <div className="w-full h-full bg-card rounded-2xl overflow-hidden shadow-lg hover:scale-[1.03] transition-transform">
+        <div className="relative h-48 bg-gradient-to-br from-blue-950 to-blue-800 flex items-center justify-center">
+          <img
+            src={advisor.image}
+            alt={advisor.name}
+            className="w-36 h-36 rounded-full object-cover border-4 border-white/30 shadow-xl"
+          />
+        </div>
+
+        <div className="p-5 text-center">
+          <h3 className="font-bold pt-6 text-lg">{advisor.name}</h3>
+          <p className="text-accent pt-3 text-md font-semibold">{advisor.designation}</p>
+          <p className="text-xs text-muted-foreground mt-1">
+            {advisor.department}
+          </p>
+
+          {advisor.email && (
+            <a
+              href={`mailto:${advisor.email}`}
+              className="mt-4 inline-flex justify-center gap-2 text-sm hover:text-primary"
+            >
+              <Mail className="w-4 h-4" />
+              {advisor.email}
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 /* ================= TEAM CARD ================= */
 
@@ -60,36 +93,33 @@ const TeamCard = ({ member, index }) => {
 
     const isMobile = window.innerWidth < 1024;
 
-gsap.fromTo(
-  card,
-  {
-    opacity: 0,
-    y: isMobile ? 0 : 40,
-    x: isMobile ? 40 : 0,
-    scale: 0.95,
-  },
-  {
-    opacity: 1,
-    y: 0,
-    x: 0,
-    scale: 1,
-    duration: 0.45,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: card,
-      start: "top bottom-=80",
-      once: true,   // 🔥 prevents reloading
-    },
-  }
-);
-
+    gsap.fromTo(
+      card,
+      {
+        opacity: 0,
+        y: isMobile ? 0 : 40,
+        x: isMobile ? 40 : 0,
+        scale: 0.95,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        x: 0,
+        scale: 1,
+        duration: 0.45,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top bottom-=80",
+          once: true,
+        },
+      }
+    );
   }, [index]);
 
   return (
     <div ref={cardRef} className="h-[420px]">
       <div className="w-full h-full bg-card rounded-2xl overflow-hidden shadow-lg hover:scale-[1.03] transition-transform">
-        
-        {/* Avatar */}
         <div className="relative h-48 bg-gradient-to-br from-primary to-accent flex items-center justify-center">
           {member.image ? (
             <img
@@ -108,7 +138,6 @@ gsap.fromTo(
           )}
         </div>
 
-        {/* Info */}
         <div className="p-5 text-center">
           <h3 className="font-bold text-lg">{member.name}</h3>
           <p className="text-accent text-sm">{member.branch}</p>
@@ -144,63 +173,64 @@ const Team = () => {
   const [activeTab, setActiveTab] = useState("current");
   const [currentFilter, setCurrentFilter] = useState("all");
   const [selectedBranch, setSelectedBranch] = useState("All");
-// Architecture should always be last
-const sortByBranchThenName = (a, b) => {
-  const arch = "Architecture";
 
-  if (a.branch === arch && b.branch !== arch) return 1;
-  if (a.branch !== arch && b.branch === arch) return -1;
-
-  // normal alphabetical sorting for others
-  return a.branch.localeCompare(b.branch) || a.name.localeCompare(b.name);
-};
-
+  const sortByBranchThenName = (a, b) => {
+    const arch = "Architecture";
+    if (a.branch === arch && b.branch !== arch) return 1;
+    if (a.branch !== arch && b.branch === arch) return -1;
+    return a.branch.localeCompare(b.branch) || a.name.localeCompare(b.name);
+  };
 
   const getCurrentData = () => {
     let data = [];
-
     if (currentFilter === "core") data = currentConveners.core;
     else if (currentFilter === "nonCore") data = currentConveners.nonCore;
     else data = [...currentConveners.core, ...currentConveners.nonCore];
-
     return [...data].sort(sortByBranchThenName);
   };
 
   return (
     <Layout>
-      {/* Hero */}
-<section
-  className="relative py-20 lg:py-28 flex items-center justify-center"
-  style={{
-    backgroundImage: `url(${teamBanner})`,
-    backgroundSize: "cover",
-    backgroundPosition: " center 45%", // tweak if needed
-    backgroundRepeat: "no-repeat",
-  }}
->
-  {/* Blue overlay */}
-  <div className="absolute inset-0 bg-blue-950/60 " />
+      {/* HERO */}
+      <section
+        className="relative py-20 lg:py-28 flex items-center justify-center"
+        style={{
+          backgroundImage: `url(${teamBanner})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center 45%",
+        }}
+      >
+        <div className="absolute inset-0 bg-blue-950/60" />
+        <div className="container relative text-center text-white z-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Team</h1>
+            <p className="text-lg text-white/90 max-w-2xl mx-auto">
+              Meet the dedicated student placement conveners who work tirelessly
+              to connect students with their dream careers.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-  <div className="container relative mx-auto px-4 lg:px-8 text-center text-white z-10">
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-    >
-      <h1 className="text-4xl md:text-5xl font-bold mb-4">
-        Our Team
-      </h1>
-      <p className="text-lg text-white/90 max-w-2xl mx-auto">
-        Meet the dedicated student placement conveners who work tirelessly
-        to connect students with their dream careers.
-      </p>
-    </motion.div>
-  </div>
-</section>
-
-
-      {/* Content */}
+      {/* CONTENT */}
       <section className="py-16 bg-background">
         <div className="container mx-auto">
+
+          {/* FACULTY ADVISORS */}
+          <section className="mb-20">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold">Our Faculty Advisors</h2>
+              <p className="text-muted-foreground mt-2">
+                Guiding and mentoring the Training & Placement Cell
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {facultyAdvisors.map((advisor, i) => (
+                <FacultyCard key={i} advisor={advisor} />
+              ))}
+            </div>
+          </section>
 
           {/* MAIN TABS */}
           <div className="flex justify-center gap-4 mb-10">
@@ -247,10 +277,7 @@ const sortByBranchThenName = (a, b) => {
                   <TeamCard
                     key={i}
                     index={i}
-                    member={{
-                      ...m,
-                      image: getConvenerImage(m.name),
-                    }}
+                    member={{ ...m, image: getConvenerImage(m.name) }}
                   />
                 ))}
               </div>

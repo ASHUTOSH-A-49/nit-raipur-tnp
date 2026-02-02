@@ -15,13 +15,21 @@ const contactInfo = [
     content: "Training & Placement Cell, NIT Raipur, G.E. Road, Raipur, Chhattisgarh 492010",
   },
   {
-    icon: Phone,
-    title: "Phone",
-    links: [
-      { label: "+91-7400730333", href: "tel:+917400730333" },
-      { label: "+91-7712253675", href: "tel:+917712253675" },
-    ],
+  icon: Phone,
+  title: "Phone",
+  person: {
+    name: "Dr. Vivek Kumar Gabba",
+    designation: "Faculty Incharge, Training & Placement Cell",
+    phone: "+91-9406173242",
   },
+  links: [
+    { label: "+91-9406173242", href: "tel:+919406173242", primary:true },
+    { divider: true },
+    { label: "+91-7400730333", href: "tel:+917400730333" },
+    { label: "+91-7712253675", href: "tel:+917712253675" },
+  ],
+}
+,
   {
     icon: Mail,
     title: "Email",
@@ -119,9 +127,22 @@ const Contact = () => {
         <h3 className="font-semibold text-foreground">{item.title}</h3>
         
         {/* Render multiple links (Phone/Email) */}
+        {item.person && (
+  <div className="mb-2">
+    <p className="font-medium text-foreground">
+      {item.person.name}
+    </p>
+    <p className="text-sm text-muted-foreground">
+      {item.person.designation}
+    </p>
+  </div>
+)}
         {item.links ? (
           <div className="flex flex-col">
-            {item.links.map((link, idx) => (
+            {item.links.map((link, idx) =>
+             link.divider ? (
+      <div key={idx} className="h-2" />   // line break space
+    ) : (
               <a
                 key={idx}
                 href={link.href}

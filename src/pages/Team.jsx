@@ -48,34 +48,51 @@ const getConvenerImage = (name) => {
 
 /* ================= FACULTY CARD ================= */
 
-const FacultyCard = ({ advisor }) => {
+const FacultyCard = ({ advisor, large = false }) => {
   return (
-    <div className="h-[380px]">
+    <div className={large ? "h-[440px]" : "h-[380px]"}>
       <div className="w-full h-full bg-card rounded-2xl overflow-hidden shadow-lg hover:scale-[1.03] transition-transform">
+
         <div className="relative h-48 bg-gradient-to-br from-blue-950 to-blue-800 flex items-center justify-center">
           <img
             src={advisor.image}
             alt={advisor.name}
-            className="w-36 h-36 rounded-full object-cover border-4 border-white/30 shadow-xl"
+            className={`rounded-full object-cover border-4 border-white/30 shadow-xl ${
+              large ? "w-40 h-40" : "w-36 h-36"
+            }`}
           />
         </div>
 
         <div className="p-5 text-center">
           <h3 className="font-bold pt-6 text-lg">{advisor.name}</h3>
+
           <p className="text-accent pt-3 text-md font-semibold">
             {advisor.designation}
           </p>
 
-          {advisor.email && (
-            <a
-              href={`mailto:${advisor.email}`}
-              className="mt-4 inline-flex justify-center gap-2 text-sm hover:text-primary"
-            >
-              <Mail className="w-4 h-4" />
-              {advisor.email}
-            </a>
-          )}
+          <div className="mt-5 space-y-2 text-sm text-black">
+            {advisor.email && (
+              <a
+                href={`mailto:${advisor.email}`}
+                className="flex justify-center gap-2 hover:text-primary"
+              >
+                <Mail className="w-4 h-4" />
+                {advisor.email}
+              </a>
+            )}
+
+            {advisor.phone && (
+              <a
+                href={`tel:${advisor.phone.replace(/[^0-9+]/g, "")}`}
+                className="flex justify-center gap-2 hover:text-primary"
+              >
+                <Phone className="w-4 h-4" />
+                {advisor.phone}
+              </a>
+            )}
+          </div>
         </div>
+
       </div>
     </div>
   );
@@ -119,6 +136,7 @@ const TeamCard = ({ member, index }) => {
   return (
     <div ref={cardRef} className="h-[420px]">
       <div className="w-full h-full bg-card rounded-2xl overflow-hidden shadow-lg hover:scale-[1.03] transition-transform">
+
         <div className="relative h-48 bg-gradient-to-br from-primary to-accent flex items-center justify-center">
           {member.image ? (
             <img
@@ -161,6 +179,7 @@ const TeamCard = ({ member, index }) => {
             </a>
           </div>
         </div>
+
       </div>
     </div>
   );
@@ -173,7 +192,6 @@ const Team = () => {
   const [currentFilter, setCurrentFilter] = useState("all");
   const [selectedBranch, setSelectedBranch] = useState("All");
 
-  /* ✅ ONLY ADDITION FOR FACULTY HIERARCHY */
   const topFaculty = facultyAdvisors.slice(0, 2);
   const otherFaculty = facultyAdvisors.slice(2);
 
@@ -194,6 +212,7 @@ const Team = () => {
 
   return (
     <Layout>
+
       {/* HERO */}
       <section
         className="relative py-20 lg:py-28 flex items-center justify-center"
@@ -219,7 +238,7 @@ const Team = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto">
 
-          {/* FACULTY ADVISORS */}
+          {/* FACULTY */}
           <section className="mb-20">
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold">Our Faculty Advisors</h2>
@@ -228,14 +247,12 @@ const Team = () => {
               </p>
             </div>
 
-            {/* TOP 2 FACULTY */}
             <div className="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
               {topFaculty.map((advisor, i) => (
-                <FacultyCard key={i} advisor={advisor} />
+                <FacultyCard key={i} advisor={advisor} large />
               ))}
             </div>
 
-            {/* REMAINING 3 FACULTY */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {otherFaculty.map((advisor, i) => (
                 <FacultyCard key={i} advisor={advisor} />
@@ -243,7 +260,7 @@ const Team = () => {
             </div>
           </section>
 
-          {/* MAIN TABS */}
+          {/* TABS */}
           <div className="flex justify-center gap-4 mb-10">
             {["current", "past"].map((tab) => (
               <button
@@ -260,7 +277,7 @@ const Team = () => {
             ))}
           </div>
 
-          {/* CURRENT & PAST CONVENERS — UNCHANGED */}
+          {/* CURRENT */}
           {activeTab === "current" && (
             <>
               <div className="flex justify-center gap-4 mb-12">
@@ -295,6 +312,7 @@ const Team = () => {
             </>
           )}
 
+          {/* PAST */}
           {activeTab === "past" && (
             <div className="space-y-16">
               <div className="flex justify-end">
@@ -347,9 +365,7 @@ const Team = () => {
                                 <td className="px-6 py-4">{m.name}</td>
                                 <td className="px-6 py-4">{m.branch}</td>
                                 <td className="px-6 py-4">
-                                  <a href={`tel:${m.contact}`}>
-                                    {m.contact}
-                                  </a>
+                                  <a href={`tel:${m.contact}`}>{m.contact}</a>
                                 </td>
                               </tr>
                             ))}

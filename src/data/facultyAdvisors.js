@@ -10,14 +10,16 @@ export const facultyAdvisors = [
     designation: "Head, Career Development Center",
     department: "",
     image: cdchead,
-    email: "",
+    email: "head.cdc@nitrr.ac.in",
+    phone:"+91-9826167065",
   },
   {
     name: "Dr. Vivek Kumar Gaba",
     designation: "Faculty In-Charge, Placement Cell",
     department: "",
     image: tpchead,
-    email: "",
+    email: "tpo@nitrr.ac.in",
+    phone:"+91 9406173242"
   },
   {
     name: "Mr. Pawan Kataria",

@@ -62,9 +62,8 @@ const FacultyCard = ({ advisor }) => {
 
         <div className="p-5 text-center">
           <h3 className="font-bold pt-6 text-lg">{advisor.name}</h3>
-          <p className="text-accent pt-3 text-md font-semibold">{advisor.designation}</p>
-          <p className="text-xs text-muted-foreground mt-1">
-            {advisor.department}
+          <p className="text-accent pt-3 text-md font-semibold">
+            {advisor.designation}
           </p>
 
           {advisor.email && (
@@ -174,6 +173,10 @@ const Team = () => {
   const [currentFilter, setCurrentFilter] = useState("all");
   const [selectedBranch, setSelectedBranch] = useState("All");
 
+  /* ✅ ONLY ADDITION FOR FACULTY HIERARCHY */
+  const topFaculty = facultyAdvisors.slice(0, 2);
+  const otherFaculty = facultyAdvisors.slice(2);
+
   const sortByBranchThenName = (a, b) => {
     const arch = "Architecture";
     if (a.branch === arch && b.branch !== arch) return 1;
@@ -225,8 +228,16 @@ const Team = () => {
               </p>
             </div>
 
+            {/* TOP 2 FACULTY */}
+            <div className="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+              {topFaculty.map((advisor, i) => (
+                <FacultyCard key={i} advisor={advisor} />
+              ))}
+            </div>
+
+            {/* REMAINING 3 FACULTY */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {facultyAdvisors.map((advisor, i) => (
+              {otherFaculty.map((advisor, i) => (
                 <FacultyCard key={i} advisor={advisor} />
               ))}
             </div>
@@ -249,7 +260,7 @@ const Team = () => {
             ))}
           </div>
 
-          {/* CURRENT */}
+          {/* CURRENT & PAST CONVENERS — UNCHANGED */}
           {activeTab === "current" && (
             <>
               <div className="flex justify-center gap-4 mb-12">
@@ -284,7 +295,6 @@ const Team = () => {
             </>
           )}
 
-          {/* PAST */}
           {activeTab === "past" && (
             <div className="space-y-16">
               <div className="flex justify-end">
@@ -351,6 +361,7 @@ const Team = () => {
                 })}
             </div>
           )}
+
         </div>
       </section>
     </Layout>

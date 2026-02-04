@@ -49,8 +49,8 @@ const contactInfo = [
 ];
 
 const Contact = () => {
-  console.log("Service ID:", import.meta.env.VITE_EMAILJS_SERVICE_ID);
-  console.log("Public Key:", import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+  // console.log("Service ID:", import.meta.env.VITE_EMAILJS_SERVICE_ID);
+  // console.log("Public Key:", import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
   useEffect(() => {
   emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 }, []);

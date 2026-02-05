@@ -8,7 +8,6 @@ import {
   MapPin, 
   CheckCircle2,
   FileText,
-  Download,
   Search,
   ClipboardCheck,
   Send,
@@ -444,8 +443,9 @@ const ForRecruiters = () => {
                   </p>
                   <div className="mt-auto">
                     <Button variant="outline" size="sm" className="gap-2 w-full sm:w-auto" asChild>
-                      <a href={doc.link} download={`${doc.title}.pdf`} target="_blank" rel="noopener noreferrer">
-                        <Download className="w-4 h-4" /> Download
+                      <a href={doc.link} target="_blank" rel="noopener noreferrer">
+                          <Eye className="w-4 h-4" />
+                              View PDF
                       </a>
                     </Button>
                   </div>

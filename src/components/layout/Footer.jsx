@@ -122,7 +122,7 @@ export const Footer = () => {
               ))}
             </div>
             <p className="text-sm text-primary-foreground/70 text-center">
-              Made with love by amazing team
+               Made with ❤️ by amazing developers
               © {new Date().getFullYear()} Training & Placement Cell, NIT Raipur. All rights reserved.
             </p>
           </div>

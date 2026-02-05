@@ -356,7 +356,8 @@ const Placements = () => {
         <div className="flex flex-col gap-3">
           <a
             href="/Placement_Doc/senate_report_2024.pdf"
-            download
+            target="_blank"
+  rel="noopener noreferrer"
             className="px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
           >
             Placement Statistics
@@ -364,7 +365,8 @@ const Placements = () => {
 
           <a
             href="/Placement_Doc/placement_report_2024.pdf"
-            download
+            target="_blank"
+  rel="noopener noreferrer"
             className="px-5 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition"
           >
             Company-Wise Placements
@@ -381,7 +383,8 @@ const Placements = () => {
         <div className="flex flex-col gap-3">
           <a
             href="/Placement_Doc/senate_report_2023.pdf"
-            download
+            target="_blank"
+  rel="noopener noreferrer"
             className="px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
           >
             Placement Statistics
@@ -389,7 +392,8 @@ const Placements = () => {
 
           <a
             href="/Placement_Doc/placement_report_2023.pdf"
-            download
+            target="_blank"
+  rel="noopener noreferrer"
             className="px-5 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition"
           >
             Company-Wise Placements
@@ -406,7 +410,8 @@ const Placements = () => {
         <div className="flex flex-col gap-3">
           <a
             href="/Placement_Doc/senate_report_2022.pdf"
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
           >
             Placement Statistics
@@ -414,7 +419,8 @@ const Placements = () => {
 
           <a
             href="/Placement_Doc/placement_report_2022.pdf"
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-5 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition"
           >
             Company-Wise Placements
@@ -431,7 +437,8 @@ const Placements = () => {
         <div className="flex flex-col gap-3">
           <a
             href="/Placement_Doc/senate_report_2022.pdf"
-            download
+            target="_blank"
+  rel="noopener noreferrer"
             className="px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
           >
             Placement Statistics
@@ -439,7 +446,8 @@ const Placements = () => {
 
           <a
             href="/Placement_Doc/placement_report_2021.pdf"
-            download
+            target="_blank"
+  rel="noopener noreferrer"
             className="px-5 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition"
           >
             Company-Wise Placements
@@ -456,7 +464,8 @@ const Placements = () => {
         <div className="flex flex-col gap-3">
           <a
             href="/Placement_Doc/senate_report_2022.pdf"
-            download
+            target="_blank"
+  rel="noopener noreferrer"
             className="px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90"
           >
             Placement Statistics
@@ -464,7 +473,8 @@ const Placements = () => {
 
           <a
             href="/Placement_Doc/placement_report_2020.pdf"
-            download
+            target="_blank"
+  rel="noopener noreferrer"
             className="px-5 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition"
           >
             Company-Wise Placements

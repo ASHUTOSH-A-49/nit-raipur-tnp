@@ -15,7 +15,8 @@ import {
   Cpu,
   Target,
   History,
-  Award
+  Award,
+  ExternalLink,
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
@@ -29,7 +30,7 @@ const iconMap = {
   FlaskConical,
   Briefcase,
   Monitor,
-  Cpu
+  Cpu,
 };
 
 // 2. Transform the JSON data to include the actual Icon component
@@ -37,11 +38,10 @@ const programsData = Object.keys(academicsDataRaw).reduce((acc, key) => {
   const program = academicsDataRaw[key];
   acc[key] = {
     ...program,
-    icon: iconMap[program.icon] || BookOpen // Default fallback if icon not found
+    icon: iconMap[program.icon] || BookOpen, // Default fallback if icon not found
   };
   return acc;
 }, {});
-
 
 /* -------------------------------------------------------------------------- */
 /* 🎓 PAGE COMPONENT                                                          */
@@ -55,11 +55,10 @@ const Academics = () => {
 
   return (
     <Layout>
-
       {/* ------------------------------------------------------------------ */}
       {/* 🔵 HERO BANNER WITH LIBRARY IMAGE                                  */}
       {/* ------------------------------------------------------------------ */}
-      
+
       <section
         className="relative py-16 lg:py-24 flex items-center justify-center min-h-[280px]"
         style={{
@@ -70,14 +69,19 @@ const Academics = () => {
         }}
       >
         {/* Blue overlay */}
-        <div className="absolute inset-0 bg-blue-950/60 backdrop-blur-[1px]"  />
+        <div className="absolute inset-0 bg-blue-950/60 backdrop-blur-[1px]" />
 
         <div className="container mx-auto px-4 lg:px-8 text-center text-white relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Academic Programs</h1>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Academic Programs
+            </h1>
             <p className="text-lg text-white/80 max-w-2xl mx-auto">
-              NIT Raipur offers undergraduate, postgraduate, and doctoral programs across
-              engineering, science, and management.
+              NIT Raipur offers undergraduate, postgraduate, and doctoral
+              programs across engineering, science, and management.
             </p>
           </motion.div>
         </div>
@@ -90,7 +94,6 @@ const Academics = () => {
       <section className="py-12 lg:py-16 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-8">
-
             {/* ------------------ SIDEBAR ------------------ */}
             <div className="lg:w-72 shrink-0">
               <div className="sticky top-24 bg-card rounded-2xl shadow-elegant border border-border overflow-hidden">
@@ -118,8 +121,12 @@ const Academics = () => {
                       >
                         <Icon className="w-5 h-5 shrink-0" />
                         <div className="flex-1 truncate">
-                          <span className="block font-medium truncate">{program.title}</span>
-                          <span className="text-xs opacity-70">{program.duration}</span>
+                          <span className="block font-medium truncate">
+                            {program.title}
+                          </span>
+                          <span className="text-xs opacity-70">
+                            {program.duration}
+                          </span>
                         </div>
                         <ChevronRight
                           className={`w-4 h-4 transition-transform ${
@@ -142,7 +149,6 @@ const Academics = () => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                 >
-
                   {/* Header card */}
                   <div className="bg-card rounded-2xl shadow-elegant border border-border overflow-hidden mb-8">
                     <div className="bg-gradient-to-r from-primary to-accent-foreground/10 px-6 py-8">
@@ -151,9 +157,12 @@ const Academics = () => {
                           <currentProgram.icon className="w-7 h-7 text-white" />
                         </div>
                         <div>
-                          <h2 className="text-2xl font-bold text-white">{currentProgram.title}</h2>
+                          <h2 className="text-2xl font-bold text-white">
+                            {currentProgram.title}
+                          </h2>
                           <p className="text-white/80 text-sm">
-                            {currentProgram.duration} • {currentProgram.branches.length} Specializations
+                            {currentProgram.duration} •{" "}
+                            {currentProgram.branches.length} Specializations
                           </p>
                         </div>
                       </div>
@@ -177,7 +186,9 @@ const Academics = () => {
                       >
                         <button
                           onClick={() =>
-                            setSelectedBranch(selectedBranch === index ? null : index)
+                            setSelectedBranch(
+                              selectedBranch === index ? null : index,
+                            )
                           }
                           className="w-full p-5 flex items-center justify-between"
                         >
@@ -186,13 +197,17 @@ const Academics = () => {
                               {index + 1}
                             </div>
                             <div>
-                              <h4 className="font-bold text-lg">{branch.name}</h4>
+                              <h4 className="font-bold text-lg">
+                                {branch.name}
+                              </h4>
                               <p className="text-sm text-muted-foreground flex items-center gap-4">
                                 <span className="flex items-center gap-1">
-                                  <Users className="w-4 h-4" /> Intake: {branch.seats}
+                                  <Users className="w-4 h-4" /> Intake:{" "}
+                                  {branch.seats}
                                 </span>
                                 <span className="flex items-center gap-1">
-                                  <History className="w-4 h-4" /> Estd: {branch.established}
+                                  <History className="w-4 h-4" /> Estd:{" "}
+                                  {branch.established}
                                 </span>
                               </p>
                             </div>
@@ -213,40 +228,61 @@ const Academics = () => {
                               className="overflow-hidden bg-secondary/30 border-t"
                             >
                               <div className="p-6 space-y-6">
-
                                 {/* Vision + Mission */}
                                 <div className="grid md:grid-cols-2 gap-6 text-sm">
                                   <div>
                                     <h5 className="font-bold text-primary flex items-center gap-2 mb-2">
                                       <Target className="w-4 h-4" /> Vision
                                     </h5>
-                                    <p className="italic text-muted-foreground">"{branch.vision}"</p>
+                                    <p className="italic text-muted-foreground">
+                                      "{branch.vision}"
+                                    </p>
                                   </div>
                                   <div>
                                     <h5 className="font-bold text-primary flex items-center gap-2 mb-2">
                                       <Award className="w-4 h-4" /> Mission
                                     </h5>
-                                    <p className="text-muted-foreground">{branch.mission}</p>
+                                    <p className="text-muted-foreground">
+                                      {branch.mission}
+                                    </p>
                                   </div>
                                 </div>
 
                                 {/* Quick Stats */}
+                                {/* Scheme & Syllabus (B.Tech ONLY) */}
+
                                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t">
                                   <div className="p-2 bg-background rounded border text-center">
-                                    <p className="text-[10px] font-bold opacity-60">ESTABLISHED</p>
-                                    <p className="text-sm font-bold">{branch.established}</p>
+                                    <p className="text-[10px] font-bold opacity-60">
+                                      ESTABLISHED
+                                    </p>
+                                    <p className="text-sm font-bold">
+                                      {branch.established}
+                                    </p>
                                   </div>
                                   <div className="p-2 bg-background rounded border text-center">
-                                    <p className="text-[10px] font-bold opacity-60">INTAKE</p>
-                                    <p className="text-sm font-bold">{branch.seats}</p>
+                                    <p className="text-[10px] font-bold opacity-60">
+                                      INTAKE
+                                    </p>
+                                    <p className="text-sm font-bold">
+                                      {branch.seats}
+                                    </p>
                                   </div>
                                   <div className="p-2 bg-background rounded border text-center">
-                                    <p className="text-[10px] font-bold opacity-60">DEGREE</p>
-                                    <p className="text-sm font-bold truncate px-1">{branch.degree}</p>
+                                    <p className="text-[10px] font-bold opacity-60">
+                                      DEGREE
+                                    </p>
+                                    <p className="text-sm font-bold truncate px-1">
+                                      {branch.degree}
+                                    </p>
                                   </div>
                                   <div className="p-2 bg-background rounded border text-center">
-                                    <p className="text-[10px] font-bold opacity-60">HIGHLIGHTS</p>
-                                    <p className="text-[11px] font-bold truncate px-1">{branch.highlights[0]}</p>
+                                    <p className="text-[10px] font-bold opacity-60">
+                                      HIGHLIGHTS
+                                    </p>
+                                    <p className="text-[11px] font-bold truncate px-1">
+                                      {branch.highlights[0]}
+                                    </p>
                                   </div>
                                 </div>
 
@@ -255,6 +291,23 @@ const Academics = () => {
                                     {branch.description}
                                   </p>
                                 </div>
+                                {/* Scheme & Syllabus (B.Tech ONLY) */}
+                                {activeProgram === "btech" &&
+                                  branch.syllabus_url && (
+                                    <div className="pt-4 border-t flex justify-center">
+                                      <a
+                                        href={branch.syllabus_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg
+                 bg-primary text-primary-foreground
+                 hover:opacity-90 transition text-sm font-medium"
+                                      >
+                                        Scheme & Syllabus
+                                        <ExternalLink className="w-4 h-4" />
+                                      </a>
+                                    </div>
+                                  )}
                               </div>
                             </motion.div>
                           )}
@@ -262,7 +315,6 @@ const Academics = () => {
                       </motion.div>
                     ))}
                   </div>
-
                 </motion.div>
               </AnimatePresence>
             </div>

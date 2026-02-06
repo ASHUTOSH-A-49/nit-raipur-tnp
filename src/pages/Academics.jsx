@@ -292,7 +292,7 @@ const Academics = () => {
                                   </p>
                                 </div>
                                 {/* Scheme & Syllabus (B.Tech ONLY) */}
-                                {activeProgram === "btech" &&
+                                {(activeProgram === "btech" ||activeProgram === "mca"||activeProgram === "msc") &&
                                   branch.syllabus_url && (
                                     <div className="pt-4 border-t flex justify-center">
                                       <a
